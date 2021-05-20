@@ -5,7 +5,7 @@
     height: 100%;
     width: 100%;
     background-image: url('https://i.imgur.com/EhSSiYU.jpg');
-    opacity: 0.4;
+    /* opacity: 0.4; */
 }
 
 .example-card {
