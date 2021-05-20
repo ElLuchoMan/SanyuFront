@@ -8,13 +8,15 @@
                 <form autocomplete="off" [formGroup]="loginForm">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Documento</mat-label>
-                        <input type="documento" matInput placeholder="Documento" formControlName="documento">
+                        <input type="number" matInput placeholder="Documento" formControlName="documento">
                         <mat-icon matSuffix>perm_identity</mat-icon>
+                        <mat-error>El documento es obligatorio</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Password</mat-label>
                         <input type="password" matInput placeholder="Password" formControlName="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-error>El password es obligatorio</mat-error>
                     </mat-form-field>
                 </form>
                 <button mat-raised-button color="primary" (click)="login()"

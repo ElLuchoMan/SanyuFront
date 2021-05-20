@@ -10,11 +10,13 @@
                         <mat-label>Email</mat-label>
                         <input type="email" matInput placeholder="Email" formControlName="email">
                         <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="campoNoValido('email')">{{emailErrorMsg}}</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Password</mat-label>
                         <input type="password" matInput placeholder="Password" formControlName="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-error>El password es obligatorio</mat-error>
                     </mat-form-field>
                 </form>
                 <button mat-raised-button color="primary" (click)="guardarPersona()"
