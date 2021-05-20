@@ -1,0 +1,9 @@
+.image {
+    background-size: cover;
+    position: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://i.imgur.com/lpia8yz.jpg');
+    opacity: 0.4;
+}
