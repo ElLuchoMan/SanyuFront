@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "siBanco"
+    }
+  },
+  "defaultProject": "siBanco",
+  "cli": {
+    "analytics": "4708369f-1456-4b54-804c-eeaa50612d8f"
+  }
 }
