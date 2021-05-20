@@ -1,0 +1,47 @@
+.login {
+    background-size: cover;
+    position: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://i.imgur.com/EhSSiYU.jpg');
+    opacity: 0.4;
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.center-content {
+    margin-top: 100px;
+    text-align: -webkit-center;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.mat-button {
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    height: 40px;
+    background-color: #3F51B5;
+}
+
+.center {
+    
+    display: inline;
+    float: center;
+}
+mat-card-header {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

@@ -7,3 +7,9 @@
     background-image: url('https://i.imgur.com/lpia8yz.jpg');
     opacity: 0.4;
 }
+
+.card {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px
+}

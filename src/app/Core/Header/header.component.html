@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-    <img alt="" width="30" height="30" src="https://i.imgur.com/fdThmYL.png">
-    <span>Banco</span>
+    <div [routerLink]="[ '/home']"><img alt="" width="30" height="30" src="https://i.imgur.com/fdThmYL.png">
+        <span>Banco</span>
+    </div>
     <span class="spacer"></span>
-    <button mat-flat-button color="primary">Ingresar</button>
-    <button mat-flat-button color="primary">Registrarse</button>
+    <button mat-flat-button color="primary" [routerLink]="[ '/login']">Ingresar</button>
+    <button mat-flat-button color="primary" [routerLink]="[ '/registro']">Registrarse</button>
     <!-- <button mat-button color="accent">Accent</button> -->
 </mat-toolbar>
