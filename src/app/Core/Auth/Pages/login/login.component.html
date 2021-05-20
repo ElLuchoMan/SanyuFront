@@ -8,14 +8,20 @@
                 <form autocomplete="off" [formGroup]="loginForm">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Documento</mat-label>
-                        <input type="number" matInput placeholder="Documento" formControlName="documento">
-                        <mat-icon matSuffix>perm_identity</mat-icon>
-                        <mat-error>El documento es obligatorio</mat-error>
+                        <input matInput placeholder="Documento" formControlName="documento" />
+                        <mat-hint>Ingrese el número de documento (entre 7 y 10 caracteres/
+                            actual:{{loginForm.controls.documento.value.length}})</mat-hint>
+                        <mat-error>
+                            {{loginForm.controls.documento.value.length === 0? 'La documento es obligatoria':
+                            'Ingresa una documento entre 7 y 10 caracteres (actual:' +
+                            loginForm.controls.documento.value.length + ')'}}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Password</mat-label>
                         <input type="password" matInput placeholder="Password" formControlName="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-hint>Ingrese su password</mat-hint>
                         <mat-error>El password es obligatorio</mat-error>
                     </mat-form-field>
                 </form>

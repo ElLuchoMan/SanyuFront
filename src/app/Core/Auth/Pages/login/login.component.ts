@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeComponent } from 'src/app/Pages/home/home.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormBuilder, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { ValidatorService } from 'src/app/Shared/Services/validator.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ValidatorService } from 'src/app/Shared/Services/validator.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
-    documento: ['', Validators.required],
+    documento: new FormControl('', [Validators.required, Validators.pattern('\\d{7,10}')]),
     password: ['', Validators.required],
   })
 
