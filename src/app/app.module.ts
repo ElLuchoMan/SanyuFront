@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Core/header/header.component';
 import { MaterialModule } from './Shared/Modules/Material/material.module';
 import { HomeComponent } from './Pages/home/home.component';
+import { LoginComponent } from './Core/Auth/Pages/login/login.component';
+import { RegistroComponent } from './Core/Auth/Pages/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
