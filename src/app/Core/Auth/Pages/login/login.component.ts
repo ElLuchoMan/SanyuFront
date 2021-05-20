@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { HomeComponent } from 'src/app/Pages/home/home.component';
-import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,21 +10,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private dialog: MatDialog, private snackBar: MatSnackBar) { }
-
+  constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder) { }
+  loginForm: FormGroup = this.fb.group({
+    documento: ['', (Validators.required,Validators.maxLength(10))],
+    password: ['', Validators.required],
+  })
   ngOnInit(): void {
   }
-  email: string;
-  password: string;
-
   register() {
   }
   login() {
-    if (this.email == "admin" && this.password == "admin") {
-      this.snackBar.open('bienvenido', '', { duration: 1000 })
+    if (this.loginForm.get('documento').value == "123" && this.loginForm.get('password').value == "123") {
+      this.snackBar.open('¡BIENVENIDO!', '', { duration: 2000 })
       this.router.navigate(['/home']);
     } else {
-      this.snackBar.open('Credenciales incorrectas', '', { duration: 1000 })
+      this.snackBar.open('Credenciales incorrectas', 'X', { duration: 2000 })
     }
   }
 
