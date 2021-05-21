@@ -5,7 +5,7 @@
                 <mat-card-title class="center">Regístrate</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <form autocomplete="off" [formGroup]="registroForm">
+                <!-- <form autocomplete="off" [formGroup]="registroForm">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Email</mat-label>
                         <input type="email" matInput placeholder="Email" formControlName="email">
@@ -18,9 +18,99 @@
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-error>El password es obligatorio</mat-error>
                     </mat-form-field>
+                </form> -->
+                <form autocomplete="off" class="mt-4 row g-3" [formGroup]="registroForm" (ngSubmit)="guardarPersona()">
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Número de Identificación</mat-label>
+                            <input matInput formControlName="documento" />
+                            <mat-hint>Ingrese el número de documento,
+                                actual:{{registroForm.controls.documento.value.length}}
+                            </mat-hint>
+                            <mat-error>La identificación es obligatoria
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Teléfono contacto</mat-label>
+                            <input matInput formControlName="telefono" />
+                            <mat-hint>Ingrese el teléfono (fijo o celular),
+                                actual:{{registroForm.controls.telefono.value.length}}
+                            </mat-hint>
+                            <mat-error>El teléfono es obligatorio </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Primer Nombre</mat-label>
+                            <input matInput formControlName="nombre1" />
+                            <mat-hint>Ingrese el primer nombre</mat-hint>
+                            <mat-error>El nombre es obligatorio</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Segundo Nombre</mat-label>
+                            <input matInput formControlName="nombre2" />
+                            <mat-hint>Ingrese el segundo nombre</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Primer Apellido</mat-label>
+                            <input matInput formControlName="apellido1" />
+                            <mat-hint>Ingrese el primer apellido</mat-hint>
+                            <mat-error>El apellido es obligatorio</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Segundo Apellido</mat-label>
+                            <input matInput formControlName="apellido2" />
+                            <mat-hint>Ingrese el segundo apellido</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="select-group">
+                            <mat-label>Facultad</mat-label>
+                            <mat-select formControlName="facultad">
+                                <mat-option [value]="facultad.nombre" *ngFor="let facultad of facultades">
+                                    {{facultad.nombre}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione el especialista</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="select-group">
+                            <mat-label>Proyecto Curricular</mat-label>
+                            <mat-select formControlName="proyectocurricular">
+                                <mat-option [value]="carrera.nombre" *ngFor="let carrera of carreras">
+                                    {{carrera.nommbre}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione el especialista</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
+                        </mat-form-field>
+                    </div> -->
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Sede</mat-label>
+                            <input matInput formControlName="sede" />
+                            <mat-hint>Ingrese la sede</mat-hint>
+                            <mat-error>La sede es obligatoria
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-card-actions class="form-action mt-2" fxLayoutAlign="center" fxLayout.lt-sm="column">
+                            <button class="card-button m-2" type="button" mat-raised-button
+                                routerLink="/listarUsuarios">
+                                <mat-icon>arrow_back</mat-icon>Regresar
+                            </button>
+                            <button class="card-button m-2" (click)="guardarPersona()" mat-raised-button
+                                [disabled]="!registroForm.valid">
+                                <mat-icon>save</mat-icon> Guardar
+                            </button>
+                            <!-- <mat-spinner *ngIf="registroForm.invalid"></mat-spinner> -->
+                        </mat-card-actions>
+                    </div>
                 </form>
-                <button mat-raised-button color="primary" (click)="guardarPersona()"
-                    [disabled]="!registroForm.valid">Ingresar</button>
             </mat-card-content>
         </mat-card>
     </div>

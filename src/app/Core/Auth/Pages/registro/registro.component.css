@@ -9,11 +9,11 @@
 }
 
 .example-card {
-    max-width: 400px;
+    max-width: 600px;
 }
 
 .center-content {
-    margin-top: 100px;
+    margin-top: 180px;
     text-align: -webkit-center;
 }
 
@@ -26,6 +26,14 @@
 .example-full-width {
     margin-top: 10px;
     width: 100%;
+}
+
+.example-middle-width {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 280px;
+    /* width: 50%; */
 }
 
 .mat-button {

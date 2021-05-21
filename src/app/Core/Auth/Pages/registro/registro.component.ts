@@ -14,6 +14,15 @@ export class RegistroComponent implements OnInit {
   registroForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     password: ['', Validators.required],
+    nombre1: ['', Validators.required],
+    documento: ['', Validators.required],
+    nombre2: [''],
+    apellido1: ['', Validators.required],
+    apellido2: [''],
+    telefono: ['', Validators.required],
+    facultad: ['', Validators.required],
+    proyectocurricular: ['', Validators.required],
+    sede: ['', Validators.required],
   })
   get emailErrorMsg(): string {
     const errors = this.registroForm.get('email')?.errors;

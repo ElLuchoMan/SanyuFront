@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.loginForm.get('documento').value == "123" && this.loginForm.get('password').value == "123") {
+    if (this.loginForm.get('documento').value == "1234567" && this.loginForm.get('password').value == "123") {
       this.snackBar.open('¡BIENVENIDO!', '', { duration: 2000 })
       this.router.navigate(['/home']);
     } else {
