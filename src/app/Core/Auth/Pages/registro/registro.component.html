@@ -2,7 +2,8 @@
     <div class="center-content">
         <mat-card class="example-card">
             <mat-card-header>
-                <mat-card-title class="center">Regístrate</mat-card-title>
+                <mat-card-title class="center"><h1>Regístrate</h1></mat-card-title>
+
             </mat-card-header>
             <mat-card-content>
                 <!-- <form autocomplete="off" [formGroup]="registroForm">
@@ -30,14 +31,18 @@
                             <mat-error>La identificación es obligatoria
                             </mat-error>
                         </mat-form-field>
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Teléfono contacto</mat-label>
-                            <input matInput formControlName="telefono" />
-                            <mat-hint>Ingrese el teléfono (fijo o celular),
-                                actual:{{registroForm.controls.telefono.value.length}}
-                            </mat-hint>
-                            <mat-error>El teléfono es obligatorio </mat-error>
+                        <mat-form-field appearance="outline" class="select-group example-middle-width">
+                            <mat-label>Tipo de documento</mat-label>
+                            <mat-select formControlName="tipoDocumento">
+                                <mat-option value="Cédula de Ciudadanía">Cédula de Ciudadanía</mat-option>
+                                <mat-option value="Tarjeta de Identidad">Tarjeta de Identidad</mat-option>
+                                <mat-option value="Cédula de Extranjería">Cédula de Extranjería</mat-option>
+                                <mat-option value="Pasaporte">Pasaporte</mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione el especialista</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
                         </mat-form-field>
+
                     </div>
 
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
@@ -90,11 +95,19 @@
                     </div> -->
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
                         <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Sede</mat-label>
-                            <input matInput formControlName="sede" />
-                            <mat-hint>Ingrese la sede</mat-hint>
-                            <mat-error>La sede es obligatoria
+                            <mat-label>Número de celular</mat-label>
+                            <input matInput formControlName="ciudad" />
+                            <mat-hint>Ingrese su número de celular</mat-hint>
+                            <mat-error>El número de celular es obligatorio
                             </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Teléfono contacto</mat-label>
+                            <input matInput formControlName="telefono" />
+                            <mat-hint>Ingrese el teléfono (fijo o celular),
+                                actual:{{registroForm.controls.telefono.value.length}}
+                            </mat-hint>
+                            <mat-error>El teléfono es obligatorio </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
