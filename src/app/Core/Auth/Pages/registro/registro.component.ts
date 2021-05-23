@@ -9,6 +9,8 @@ import { ValidatorService } from 'src/app/Shared/Services/validator.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  show: boolean;
+  icon : boolean;
   constructor(private fb: FormBuilder, private router: Router, private validatorService: ValidatorService) { }
   registroForm: FormGroup = this.fb.group({
     documento: ['', Validators.required],
@@ -21,8 +23,8 @@ export class RegistroComponent implements OnInit {
     password: ['', Validators.required],
     celular: ['', Validators.required],
     telefono: ['', Validators.required],
-    direccion: ['', Validators.required],
-    ciudad: ['', Validators.required],
+    // direccion: ['', Validators.required],
+    // ciudad: ['', Validators.required],
   })
   get emailErrorMsg(): string {
     const errors = this.registroForm.get('email')?.errors;
@@ -37,6 +39,11 @@ export class RegistroComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  verPassword() {
+    this.show = !this.show;
+    this.icon = !this.icon;
+  }
+
 
   campoNoValido(campo: string) {
     return this.registroForm.get(campo)?.invalid && this.registroForm.get(campo)?.touched;

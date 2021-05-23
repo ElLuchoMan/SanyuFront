@@ -2,7 +2,9 @@
     <div class="center-content">
         <mat-card class="example-card">
             <mat-card-header>
-                <mat-card-title class="center"><h1>Regístrate</h1></mat-card-title>
+                <mat-card-title class="center">
+                    <h1>Regístrate</h1>
+                </mat-card-title>
 
             </mat-card-header>
             <mat-card-content>
@@ -71,32 +73,25 @@
                             <mat-hint>Ingrese el segundo apellido</mat-hint>
                         </mat-form-field>
                     </div>
-                    <!-- <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
-                        <mat-form-field appearance="outline" class="select-group">
-                            <mat-label>Facultad</mat-label>
-                            <mat-select formControlName="facultad">
-                                <mat-option [value]="facultad.nombre" *ngFor="let facultad of facultades">
-                                    {{facultad.nombre}}
-                                </mat-option>
-                            </mat-select>
-                            <mat-hint>Seleccione el especialista</mat-hint>
-                            <mat-error>Campo obligatorio</mat-error>
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Correo electónico</mat-label>
+                            <input matInput formControlName="email" />
+                            <mat-hint>Ingrese el email electrónico</mat-hint>
+                            <mat-error>El email es obligatorio</mat-error>
                         </mat-form-field>
-                        <mat-form-field appearance="outline" class="select-group">
-                            <mat-label>Proyecto Curricular</mat-label>
-                            <mat-select formControlName="proyectocurricular">
-                                <mat-option [value]="carrera.nombre" *ngFor="let carrera of carreras">
-                                    {{carrera.nommbre}}
-                                </mat-option>
-                            </mat-select>
-                            <mat-hint>Seleccione el especialista</mat-hint>
-                            <mat-error>Campo obligatorio</mat-error>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="show ? 'text' : 'password'" formControlName="password" />
+                            <mat-hint>Ingrese el password</mat-hint>
+                            <mat-error>El passsword es obligatorio</mat-error>
+                            <mat-icon (click)="verPassword()" matSuffix>{{icon ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </mat-form-field>
-                    </div> -->
+                    </div>
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
                         <mat-form-field appearance="outline" class="example-middle-width">
                             <mat-label>Número de celular</mat-label>
-                            <input matInput formControlName="ciudad" />
+                            <input matInput formControlName="celular" />
                             <mat-hint>Ingrese su número de celular</mat-hint>
                             <mat-error>El número de celular es obligatorio
                             </mat-error>

@@ -11,6 +11,7 @@ import { ValidatorService } from 'src/app/Shared/Services/validator.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  show: boolean;
   loginForm: FormGroup = this.fb.group({
     documento: new FormControl('', [Validators.required, Validators.pattern('\\d{7,10}')]),
     password: ['', Validators.required],
@@ -19,6 +20,10 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private validatorService: ValidatorService) { }
 
   ngOnInit(): void {
+    this.show = false;
+  }
+  verPassword() {
+    this.show = !this.show;
   }
 
   login() {

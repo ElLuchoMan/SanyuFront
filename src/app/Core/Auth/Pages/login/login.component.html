@@ -2,7 +2,9 @@
     <div class="center-content">
         <mat-card class="example-card">
             <mat-card-header>
-                <mat-card-title class="center"><h1>Ingresar</h1></mat-card-title>
+                <mat-card-title class="center">
+                    <h1>Ingresar</h1>
+                </mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <form autocomplete="off" [formGroup]="loginForm">
@@ -20,18 +22,22 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput placeholder="Password" formControlName="password">
+                        <input [type]="show ? 'text' : 'password'" matInput placeholder="Password"
+                            formControlName="password">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-hint>Ingrese su password</mat-hint>
                         <mat-error>El password es obligatorio</mat-error>
                     </mat-form-field>
+                    <mat-checkbox class="check" (click)="verPassword() ">Ver contraseña</mat-checkbox>
                 </form>
                 <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
                     <mat-card-actions class="form-action" fxLayoutAlign="center" fxLayout.lt-sm="column">
                         <div class="row">
-                            <button mat-button color="primary" class="mat-button" [routerLink]="['/registro']">¿No tiene una cuenta?</button>
+                            <button mat-button color="primary" class="mat-button" [routerLink]="['/registro']">¿No tiene
+                                una cuenta?</button>
                         </div>
-                        <button mat-raised-button class="mat-button mt-1" color="primary" (click)="login()" [disabled]="!loginForm.valid">
+                        <button mat-raised-button class="mat-button mt-1" color="primary" (click)="login()"
+                            [disabled]="!loginForm.valid">
                             <mat-icon>done</mat-icon> Ingresar
                         </button>
                     </mat-card-actions>
