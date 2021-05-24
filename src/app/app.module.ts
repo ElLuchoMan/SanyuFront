@@ -19,7 +19,7 @@ import { DialogComponent } from './Shared/Components/dialog/dialog.component';
     HomeComponent,
     LoginComponent,
     RegistroComponent,
-    DialogComponent
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
