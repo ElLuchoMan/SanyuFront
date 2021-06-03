@@ -2,7 +2,7 @@
   min-height: 40vh;
   max-height: 10vh;
   background-image: url("https://i.imgur.com/8TRpBjx.png");
-  background-attachment:fixed;
+  background-attachment: fixed;
   background-size: contain;
   /* filter: grayscale(0.35); */
   /* -webkit-filter: grayscale(0.35); */
@@ -21,11 +21,8 @@
 }
 
 .card-button {
-  /* padding: 10px 30px !important; */
   background-color: var(--azul-claro);
   color: #fff;
-  /* font-weight: 20; */
-  /* font-size: 1rem; */
   border: 1px solid var(--azul-claro);
 }
 
@@ -34,6 +31,7 @@
   font-weight: 200;
   color: #fff;
 }
-.content{
- margin: 40px 40px 40px 40px
+
+.content {
+  margin: 40px 40px 40px 40px
 }
