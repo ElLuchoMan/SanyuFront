@@ -1,6 +1,6 @@
 {
-  "name": "si-banco",
-  "version": "0.0.0",
+  "name": "sanyu",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -12,11 +12,11 @@
                         <mat-label>Documento</mat-label>
                         <input matInput placeholder="Documento" formControlName="documento" />
                         <mat-icon matSuffix>account_circle</mat-icon>
-                        <mat-hint>Ingrese el número de documento (entre 7 y 10 caracteres/
+                        <mat-hint>Ingrese el número de documento (entre 7 y 10 números/
                             actual:{{loginForm.controls.documento.value.length}})</mat-hint>
                         <mat-error>
                             {{loginForm.controls.documento.value.length === 0? 'El documento es obligatorio ':
-                            'Ingresa una documento entre 7 y 10 caracteres (actual:' +
+                            'Ingresa un documento entre 7 y 10 números (actual:' +
                             loginForm.controls.documento.value.length + ')'}}
                         </mat-error>
                     </mat-form-field>
@@ -32,10 +32,10 @@
                 </form>
                 <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
                     <mat-card-actions class="form-action" fxLayoutAlign="center" fxLayout.lt-sm="column">
-                        <div class="row">
-                            <button mat-button color="primary" class="mat-button" [routerLink]="['/registro']">¿No tiene
-                                una cuenta?</button>
-                        </div>
+                        <button class="card-button m-2" type="button" mat-raised-button
+                                routerLink="/listarUsuarios">
+                                <mat-icon>arrow_back</mat-icon>Regresar
+                            </button>
                         <button mat-raised-button class="mat-button" color="primary" (click)="login()"
                             [disabled]="!loginForm.valid">
                             <mat-icon>done</mat-icon> Ingresar

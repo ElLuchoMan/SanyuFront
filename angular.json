@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "siBanco": {
+    "sanyu": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/siBanco",
+            "outputPath": "dist/sanyu",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "siBanco:build"
+            "browserTarget": "sanyu:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "siBanco:build:production"
+              "browserTarget": "sanyu:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "siBanco:build"
+            "browserTarget": "sanyu:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "siBanco:serve"
+            "devServerTarget": "sanyu:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "siBanco:serve:production"
+              "devServerTarget": "sanyu:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "siBanco",
+  "defaultProject": "sanyu",
   "cli": {
     "analytics": "4708369f-1456-4b54-804c-eeaa50612d8f"
   }
