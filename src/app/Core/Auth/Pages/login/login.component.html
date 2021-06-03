@@ -8,37 +8,36 @@
             </mat-card-header>
             <mat-card-content>
                 <form autocomplete="off" [formGroup]="loginForm">
-                  <div class="form-group">
-                    <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Documento</mat-label>
-                        <input matInput placeholder="Documento" formControlName="documento" />
-                        <mat-icon class="icon" matSuffix>account_circle</mat-icon>
-                        <mat-hint>Ingrese el número de documento (entre 7 y 10 números/
-                            actual:{{loginForm.controls.documento.value.length}})</mat-hint>
-                        <mat-error>
-                            {{loginForm.controls.documento.value.length === 0? 'El documento es obligatorio ':
-                            'Ingresa un documento entre 7 y 10 números (actual:' +
-                            loginForm.controls.documento.value.length + ')'}}
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Password</mat-label>
-                        <input [type]="show ? 'text' : 'password'" matInput placeholder="Password"
-                            formControlName="password">
-                        <mat-icon class="icon"matSuffix>vpn_key</mat-icon>
-                        <mat-hint>Ingrese su password</mat-hint>
-                        <mat-error>El password es obligatorio</mat-error>
-                    </mat-form-field>
-                    <mat-checkbox class="check" (click)="verPassword() ">Ver contraseña</mat-checkbox>  
-                  </div>
+                    <div class="form-group">
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-label>Documento</mat-label>
+                            <input matInput placeholder="Documento" formControlName="documento" />
+                            <mat-icon class="icon" matSuffix>account_circle</mat-icon>
+                            <mat-hint>Ingrese el número de documento (entre 7 y 10 números/
+                                actual:{{loginForm.controls.documento.value.length}})</mat-hint>
+                            <mat-error>
+                                {{loginForm.controls.documento.value.length === 0? 'El documento es obligatorio ':
+                                'Ingresa un documento entre 7 y 10 números (actual:' +
+                                loginForm.controls.documento.value.length + ')'}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input [type]="show ? 'text' : 'password'" matInput placeholder="Password"
+                                formControlName="password">
+                            <mat-icon class="icon" matSuffix>vpn_key</mat-icon>
+                            <mat-hint>Ingrese su password</mat-hint>
+                            <mat-error>El password es obligatorio</mat-error>
+                        </mat-form-field>
+                        <mat-checkbox class="check" (click)="verPassword() ">Ver contraseña</mat-checkbox>
+                    </div>
                 </form>
-                <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <div fxLayout="column" fxLayoutAlign="center center">
                     <mat-card-actions class="form-action" fxLayoutAlign="center" fxLayout.lt-sm="column">
                         <button class="card-button" type="button" mat-raised-button routerLink="/listarUsuarios">
                             <mat-icon>arrow_back</mat-icon>Regresar
                         </button>
-                        <button class="card-button" (click)="login()" mat-raised-button
-                            [disabled]="!loginForm.valid">
+                        <button class="card-button" (click)="login()" mat-raised-button [disabled]="!loginForm.valid">
                             <mat-icon>done</mat-icon> Ingresar
                         </button>
                     </mat-card-actions>

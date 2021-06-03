@@ -14,6 +14,7 @@ body {
     width: 100% !important;
 }
 
+
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
@@ -67,7 +68,7 @@ div.invalid-form {
   }
 }
 .card-button {
-  padding: 8px 25px !important;
+  /* padding: 8px 25px !important; */
   background-color: var(--azul-claro);
   color: #fff;
   font-weight: 180;
@@ -77,6 +78,6 @@ div.invalid-form {
 
 .card-button:hover {
   background-color: var(--azul-claro2);
-  font-weight: 400;
+  /* font-weight: 400; */
   color:#fff;
 }
