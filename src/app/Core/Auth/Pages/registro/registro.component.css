@@ -62,3 +62,9 @@ mat-card-header {
     font-size: 2em;
     font-family: 'Signika','Belgrano', serif;
 }
+.icon {
+    color: var(--azul-claro);
+}
+.bar{
+    color: var(--azul-claro);
+}

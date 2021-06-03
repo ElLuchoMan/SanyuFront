@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
       title: 'Productos',
       subtitle: 'Listado de nuestros productos',
       img: 'https://i.imgur.com/tmDjT0m.jpg',
-      button: 'Ir',
+      button: 'Productos',
       urlTo: '/productos',
     },
     {
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       title: 'Servicios',
       subtitle: 'Listado de nuestros servicios',
       img: 'https://i.imgur.com/wfGbIhM.jpg',
-      button: 'Ir',
+      button: 'Servicios',
       urlTo: '/servicios',
     },
     {
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       title: 'Contacto',
       subtitle: 'Contacta con nosotros',
       img: 'https://i.imgur.com/nyWLQLy.jpg',
-      button: 'Ir',
+      button: 'Contacto',
       urlTo: '/contacto',
     },
   ];

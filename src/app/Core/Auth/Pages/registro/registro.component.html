@@ -86,7 +86,7 @@
                             <input matInput [type]="show ? 'text' : 'password'" formControlName="password" />
                             <mat-hint>Ingrese el password</mat-hint>
                             <mat-error>El passsword es obligatorio</mat-error>
-                            <mat-icon (click)="verPassword()" matSuffix>{{icon ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-icon class="icon" (click)="verPassword()" matSuffix>{{icon ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </mat-form-field>
                     </div>
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
