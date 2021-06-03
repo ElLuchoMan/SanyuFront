@@ -1,5 +1,5 @@
 .home-header {
-  min-height: 40vh;
+  min-height: 35vh;
   max-height: 10vh;
   background-image: url("https://i.imgur.com/8TRpBjx.png");
   background-attachment: fixed;
@@ -20,7 +20,7 @@
   color: var(--azul-claro);
 }
 .home-img {
- max-height: 25vh;
+ max-height: 20vh;
  min-height: 20vh;
 }
 .card-button {
@@ -31,7 +31,7 @@
 
 .card-button:hover {
   background-color: var(--azul-claro2);
-  font-weight: 200;
+  /* font-weight: 200; */
   color: #fff;
 }
 
