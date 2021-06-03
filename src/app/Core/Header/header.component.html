@@ -1,8 +1,6 @@
-<mat-toolbar color="primary">
-    <div class="logo" [routerLink]="[ '/home']"><img alt="Sanyu" width="172" height="40" src="https://i.imgur.com/RhXmSYf.png">
-    </div>
+<mat-toolbar class=".bg-darken-gray expanded">
+    <div class="logo" [routerLink]="['/home']"></div>
     <span class="spacer"></span>
-    <button mat-flat-button color="primary" [routerLink]="[ '/login']">Ingresar</button>
-    <button mat-flat-button color="primary" [routerLink]="[ '/registro']">Registrarse</button>
-    <!-- <button mat-button color="accent">Accent</button> -->
+    <button class="card-button " mat-button [routerLink]="[ '/login']">Ingresar</button>
+    <button class="card-button" mat-button [routerLink]="[ '/registro']">Registrarse</button>
 </mat-toolbar>

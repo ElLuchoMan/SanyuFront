@@ -1,6 +1,22 @@
 <app-header></app-header>
-<div class="home">
-    <div class="container">
-        <mat-card class="card">Simple card</mat-card>
+
+
+<header class="home-header" gdArea="header" fxLayoutAlign="center center"> </header>
+
+<section class="m-1" gdArea="content">
+    <div fxLayout="row wrap" class="content" fxLayoutAlign="space-evenly start">
+        <mat-card class="mb-2" fxFlex="25" fxFlex.lt-sm="100" *ngFor="let card of cards">
+            <mat-card-header>
+                <mat-icon mat-card-avatar>{{card.avatar}}</mat-icon>
+                <mat-card-title>{{card.title}}</mat-card-title>
+                <mat-card-subtitle>{{card.subtitle}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img class="home-img" mat-card-image [src]="card.img" alt="Photo" />
+
+            <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+                <button class="card-button mb-3" mat-button [routerLink]="[card.urlTo]">{{card.button}}</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
-</div>
+</section>
