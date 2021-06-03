@@ -1,7 +1,7 @@
 .home-header {
   min-height: 35vh;
   max-height: 10vh;
-  background-image: url("https://i.imgur.com/8TRpBjx.png");
+  background-image: url("https://i.imgur.com/lJRTbzU.png ");
   background-attachment: fixed;
   background-size: contain;
   /* filter: grayscale(0.35); */
@@ -37,4 +37,8 @@
 
 .content {
   margin: 40px 40px 40px 40px
+}
+  
+.container {
+background-color: white;
 }

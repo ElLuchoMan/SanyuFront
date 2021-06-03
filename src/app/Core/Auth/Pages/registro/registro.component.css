@@ -57,3 +57,8 @@ mat-card-header {
     margin-top: 5px;
     margin-bottom: 10px;
 }
+.tittle {
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Signika','Belgrano', serif;
+}

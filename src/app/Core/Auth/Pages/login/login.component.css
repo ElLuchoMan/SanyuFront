@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Belgrano&family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
 .login {
     background-size: cover;
     position: fixed;
@@ -60,15 +62,9 @@ mat-card-header {
 .icon {
     color: var(--azul-claro);
 }
-/* 
-@font-face {
-    src: url('mystery-quest.woff2');
-    font-family: 'Mystery Quest';
-} */
 
 .tittle {
     font-weight: bold;
     font-size: 2em;
-    /* font-family: 'belgrado' sans-serif; */
-    font-family: "Mystery Quest", cursive;
+    font-family: 'Signika','Belgrano', serif;
 }
