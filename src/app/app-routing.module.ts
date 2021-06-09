@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: 'home' },
+  { path: 'pages', loadChildren: () => import('./Pages/pages.module').then(m => m.PagesModule) },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
