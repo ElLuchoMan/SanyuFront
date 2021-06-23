@@ -1,5 +1,5 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <nav class="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -9,4 +9,29 @@ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
         <button class="card-button " mat-button [routerLink]="[ '/login']">Ingresar</button>
         <button class="card-button" mat-button [routerLink]="[ '/registro']">Registrarse</button>
     </div>
-</nav>
+</nav> -->
+<mat-toolbar class=".bg-darken-gray expanded">
+    <div class="logo" [routerLink]="['/home']"></div>
+    <span class="spacer"></span>
+    <button class="card-button " mat-button [routerLink]="[ '/login']">Ingresar</button>
+    <button class="card-button" mat-button [routerLink]="[ '/registro']">Registrarse</button>
+</mat-toolbar>
+
+<section class="container" gdArea="content">
+    <header class="home-header" gdArea="header" fxLayoutAlign="center center"> </header>
+    <div fxLayout="row wrap" class="content" fxLayoutAlign="space-evenly start">
+        <mat-card fxFlex="25" fxFlex.lt-sm="100" *ngFor="let card of cards">
+            <mat-card-header>
+                <mat-icon mat-card-avatar>{{card.avatar}}</mat-icon>
+                <mat-card-title>{{card.title}}</mat-card-title>
+                <mat-card-subtitle>{{card.subtitle}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img class="home-img" mat-card-image [src]="card.img" alt="Photo" />
+
+            <mat-card-actions fxLayout="column" fxLayoutAlign="center center">
+                <button class="card-button mb-3" mat-button [routerLink]="[card.urlTo]">{{card.button}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</section>
