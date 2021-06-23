@@ -1,4 +1,9 @@
-<app-header></app-header>
+<mat-toolbar class=".bg-darken-gray expanded">
+    <div class="logo" [routerLink]="['/home']"></div>
+    <span class="spacer"></span>
+    <button class="card-button " mat-button [routerLink]="[ '/login']">Ingresar</button>
+    <button class="card-button" mat-button [routerLink]="[ '/registro']">Registrarse</button>
+</mat-toolbar>
 <section class="container" gdArea="content">
     <header class="home-header" gdArea="header" fxLayoutAlign="center center"> </header>
     <div fxLayout="row wrap" class="content" fxLayoutAlign="space-evenly start">

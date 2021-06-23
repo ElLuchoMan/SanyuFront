@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Consulta los turnos y contratistas',
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
-      // urlTo: '/productos',
+      urlTo: null,
     },
     {
       avatar: 'pending_actions',
@@ -21,15 +21,15 @@ export class HomeComponent implements OnInit {
       subtitle: 'Agrega o edita los turnos de los contratistas',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Gestionar Turnos',
-      // urlTo: '/servicios',
+      urlTo: 'null',
     },
     {
       avatar: 'how_to_reg',
-      title: 'Registrar Contratistas',
-      subtitle: 'Agrega nuevos Contratistas',
-      img: 'https://i.imgur.com/Fbq84jz.jpg',
-      button: 'Registrar Contratistas',
-      urlTo: '/contacto',
+      title: 'Contactar clientes',
+      subtitle: 'Contacta con los clientes activos',
+      img: 'https://i.imgur.com/jDTqWlK.jpg',
+      button: 'Contactar Clientes',
+      urlTo: null,
     },
   ];
   constructor() { }
