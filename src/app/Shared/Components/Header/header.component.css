@@ -1,0 +1,40 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+span {
+  margin-left: 4px;
+}
+
+.expanded {
+  color: var(--azul-claro);
+  background-color: var(--azul-claro);
+}
+
+.logo {
+  cursor: pointer;
+  background-image: url("https://i.imgur.com/RhXmSYf.png");
+  background-size: cover;
+  height: 40px;
+  width: 170px;
+}
+
+/*
+  * ESTILOS DEL MENU
+  */
+mat-list-item mat-icon,
+mat-list-item a {
+  color: var(--azul-claro);
+  font-weight: 200;
+  
+}
+
+mat-list-item a {
+  text-decoration: none;
+  font-size: 1.2rem !important;
+}
+
+mat-list-item:hover,
+mat-list-item:active {
+  border-bottom: 3px solid var(--azul-claro2);
+}
