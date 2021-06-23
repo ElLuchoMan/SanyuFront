@@ -86,3 +86,23 @@ mat-list-item:hover, mat-list-item:active {
 .container {
     background-color: white;
 }
+
+.card-turno {
+    /* background-color: var(--azul-claro2); */
+    margin: 150px 600px 100px 600px;
+}
+
+.tittle {
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Signika', 'Belgrano', serif;
+}
+
+label {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.content-turno {
+    margin: 10px 0px 10px 0px;
+}

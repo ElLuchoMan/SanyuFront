@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'users', children: [
       { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-      { path: 'usuario', loadChildren: () => import('./contratista/contratista.module').then(m => m.ContratistaModule) },
+      { path: 'contratista', loadChildren: () => import('./contratista/contratista.module').then(m => m.ContratistaModule) },
     ]
   },
   { path: '**', redirectTo: 'home' }
