@@ -32,10 +32,6 @@ span {
     color: var(--azul-profundo);
 }
 
-/*
-    * ESTILOS DEL MENU
-    */
-
 mat-list-item mat-icon, mat-list-item a {
     color: var(--azul-claro);
     font-weight: 200;
@@ -88,8 +84,13 @@ mat-list-item:hover, mat-list-item:active {
 }
 
 .card-turno {
-    /* background-color: var(--azul-claro2); */
-    margin: 150px 600px 100px 600px;
+    margin: 150px 0px 100px 0px;
+    max-width: 600px;
+    max-height: 300px;
+    min-width: 600px;
+    min-height: 120px;
+    align-items: center;
+    justify-content: center;
 }
 
 .tittle {
@@ -105,4 +106,12 @@ label {
 
 .content-turno {
     margin: 10px 0px 10px 0px;
+}
+
+.center-content {
+    margin-top: 10px;
+    text-align: -webkit-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

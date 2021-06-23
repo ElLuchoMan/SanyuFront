@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  turnoHoy: any[] = [{ labor: 'campo', jornada: 'mañana', horaInicio: '6:00', horaFin: '16:00' }];
+  turnoHoy: any[] = [{ labor: 'campo', jornada: 'mañana', horaInicio: '6:00', horaFin: '16:00' }];  
   // turnoHoy: any[] = [];
 
   cards = [
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     {
       avatar: 'pending_actions',
       title: 'Reporte de incidentes',
-      subtitle: '¿Tuviste algún inconveniente? Háznolo saber',
+      subtitle: '¿Tuviste algún inconveniente? Háznoslo saber',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Reportar Incidentes',
       // urlTo: '/servicios',
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Reportes, Vacacaciones, incapacidades y trámites',
       img: 'https://i.imgur.com/Fbq84jz.jpg',
       button: 'Asistente Virtual',
-      urlTo: '/registro',
+      urlTo: '/',
     },
   ];
   constructor() { }
