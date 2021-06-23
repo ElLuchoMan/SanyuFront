@@ -4,8 +4,8 @@
     <button class="card-button2" mat-button [routerLink]="[ '/home']">Cerrar sesión</button>
 </mat-toolbar>
 <section>
-    <div class="container" *ngIf="turnoHoy[0]!=null">
-        <mat-card class="card-turno">
+    <div class="container">
+        <mat-card *ngIf="turnoHoy[0]!=null" class="card-turno">
             <mat-card-header>
                 <mat-card-title fxLayoutAlign="center" class="tittle">Tu turno de hoy</mat-card-title>
             </mat-card-header>
@@ -20,6 +20,10 @@
                     <mat-icon>add_task</mat-icon> Iniciar
                 </button>
             </mat-card-actions>
+        </mat-card>
+        <mat-card *ngIf="turnoHoy[0]==null" class="card-turno">
+            <mat-card-title fxLayoutAlign="center" class="tittle">No tienes turnos registrados para hoy
+            </mat-card-title>
         </mat-card>
     </div>
 </section>
