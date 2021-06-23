@@ -1,3 +1,23 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+span {
+  margin-left: 4px;
+}
+
+.expanded {
+  color: var(--azul-claro);
+  background-color: var(--azul-claro);
+}
+
+.logo {
+  cursor: pointer;
+  background-image: url("https://i.imgur.com/RhXmSYf.png");
+  background-size: cover;
+  height: 40px;
+  width: 170px;
+}
 .home-header {
   min-height: 35vh;
   max-height: 10vh;

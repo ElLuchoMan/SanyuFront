@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Agrega nuevos Contratistas',
       img: 'https://i.imgur.com/Fbq84jz.jpg',
       button: 'Registrar Contratistas',
-      urlTo: '/contacto',
+      urlTo: '/registro',
     },
   ];
   constructor() { }
