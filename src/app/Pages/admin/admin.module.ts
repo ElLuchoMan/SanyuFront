@@ -6,12 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from 'src/app/Shared/Modules/Material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VerTurnosComponent } from './ver-turnos/ver-turnos.component';
+import { GestionarTurnosComponent } from './gestionar-turnos/gestionar-turnos.component';
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, VerTurnosComponent],
+  declarations: [HomeComponent, VerTurnosComponent, GestionarTurnosComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Agrega o edita los turnos de los contratistas',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Gestionar Turnos',
-      // urlTo: '/servicios',
+      urlTo: '/pages/users/admin//gestionar',
     },
     {
       avatar: 'how_to_reg',

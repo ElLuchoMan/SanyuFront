@@ -1,0 +1,51 @@
+<mat-toolbar class=".bg-darken-gray expanded">
+    <div class="logo" [routerLink]="['/home']"></div>
+    <span class="spacer"></span>
+    <button class="card-button2" mat-button [routerLink]="[ '/home']">Cerrar sesión</button>
+</mat-toolbar>
+<div fxLayout="column">
+    <div fxLayoutAlign="center" class="head">
+        <div>
+            <form class="search">
+                <mat-form-field class="mat-form-field">
+                    <mat-label>Buscar Contratista</mat-label>
+                    <input type="text" matInput placeholder="Documento...">
+                </mat-form-field>
+                <button mat-button>
+                    <mat-icon class="button" matSuffix>search</mat-icon>
+                </button>
+
+            </form>
+            <button class="button" mat-button routerLink="../">
+                <mat-icon>keyboard_backspace</mat-icon> Volver
+            </button>
+            <button class="button" style="margin-left: 10px;" mat-button routerLink="../">
+                Contratistas sin turno
+            </button>
+        </div>
+    </div>
+
+    <div class="center-content">
+        <mat-card class="example-card">
+            <mat-card-content>
+                <label> <strong>Nombre: </strong>{{'Bryan Luis'}}</label>
+                <label style="margin-left: 20px;"> <strong>Documento: </strong>{{'1015466494'}}</label>
+                <form class="example-form">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Labor</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let labor of labores" [value]="labor.value">
+                                {{labor.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
