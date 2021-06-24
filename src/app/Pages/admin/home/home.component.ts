@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Consulta los turnos y contratistas',
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
-      // urlTo: '/productos',
+      urlTo: '/pages/users/admin/turnos',
     },
     {
       avatar: 'pending_actions',

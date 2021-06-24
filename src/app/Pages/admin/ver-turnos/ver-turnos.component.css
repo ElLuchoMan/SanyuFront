@@ -1,0 +1,59 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+span {
+    margin-left: 4px;
+}
+
+.expanded {
+    color: var(--azul-claro);
+    background-color: var(--azul-claro);
+}
+
+.logo {
+    cursor: pointer;
+    background-image: url("https://i.imgur.com/RhXmSYf.png");
+    background-size: cover;
+    height: 40px;
+    width: 170px;
+}
+
+.head {
+    height: 120px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.button {
+    color: var(--azul-claro);
+    background-color: white;
+    /* margin-left: 10px; */
+}
+
+.search {
+    min-width: 250px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.mat-form-field {
+    margin-top: 20px;
+    width: 210px;
+}
+
+table {
+
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    margin: 40px 10px 10px 10px;
+}
+
+.mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+}

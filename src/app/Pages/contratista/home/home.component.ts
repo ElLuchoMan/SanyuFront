@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Consulta todos tus turnos',
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
-      // urlTo: '/productos',
+      urlTo: '/turnos',
     },
     {
       avatar: 'pending_actions',
@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  mostrar(){
+    console.log()
   }
 
 }

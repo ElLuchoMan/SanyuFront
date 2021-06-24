@@ -5,12 +5,13 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from 'src/app/Shared/Modules/Material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { VerTurnosComponent } from './ver-turnos/ver-turnos.component';
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, VerTurnosComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

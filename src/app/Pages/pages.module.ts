@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
+import { registerLocaleData } from "@angular/common"
+import LocaleEs from "@angular/common/locales/es-CO";
+registerLocaleData(LocaleEs);//Se registra el idioma español
 
 
 
@@ -11,6 +14,11 @@ import { PagesRoutingModule } from './pages-routing.module';
   imports: [
     CommonModule,
     PagesRoutingModule,
-  ]
+  ],
+  providers: [
+    {
+      provide: LOCALE_ID, useValue: 'es-CO'
+    }
+  ],
 })
 export class PagesModule { }
