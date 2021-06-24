@@ -45,6 +45,18 @@
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Jornada</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let jornada of jornadas" [value]="jornada.value">
+                                {{jornada.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        
+                    </div>
                 </form>
             </mat-card-content>
         </mat-card>

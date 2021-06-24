@@ -27,6 +27,7 @@
     "install": "^0.13.0",
     "material": "^0.4.3",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-material-timepicker": "^5.5.3",
     "npm": "^7.18.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

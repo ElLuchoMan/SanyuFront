@@ -18,6 +18,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 @NgModule({
   declarations: [],
   imports: [
@@ -42,7 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule
   ]
 })
 export class MaterialModule { }

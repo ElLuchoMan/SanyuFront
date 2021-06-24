@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class GestionarTurnosComponent implements OnInit {
 
   labores: any[] = [
-    { value: 'steak-0', nombre: 'Campo' },
-    { value: 'pizza-1', nombre: 'Oficina' },
+    { value: 'Campo', nombre: 'Campo' },
+    { value: 'Oficina', nombre: 'Oficina' },
+  ];
+  jornadas: any[] = [
+    { value: '1', nombre: 'Mañana' },
+    { value: '2', nombre: 'Tarde' },
+    { value: '3', nombre: 'Oficina' }
   ];
   constructor() { }
 
