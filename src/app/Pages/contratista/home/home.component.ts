@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
       urlTo: '/pages/users/contratista/turnos',
-      activo: true,
     },
     {
       avatar: 'pending_actions',
@@ -28,8 +27,7 @@ export class HomeComponent implements OnInit {
       subtitle: '¿Tuviste algún inconveniente? Háznoslo saber',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Reportar Incidentes',
-      activo: false,
-      // urlTo:,
+      urlTo: '/404',
     },
     {
       avatar: 'how_to_reg',
@@ -37,8 +35,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Reportes, Vacacaciones, incapacidades y trámites',
       img: 'https://i.imgur.com/Fbq84jz.jpg',
       button: 'Asistente Virtual',
-      urlTo: '/',
-      activo: false,
+      urlTo: '/404',
     },
   ];
   constructor(public dialog: MatDialog) { }

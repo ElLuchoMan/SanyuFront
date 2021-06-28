@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Listado de nuestros servicios',
       img: 'https://i.imgur.com/wfGbIhM.jpg',
       button: 'Servicios',
-      urlTo: '/servicios',
+      urlTo: '/404',
     },
     {
       avatar: 'contact_mail',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Contacta con nosotros',
       img: 'https://i.imgur.com/nyWLQLy.jpg',
       button: 'Contacto',
-      urlTo: '/contacto',
+      urlTo: '/404',
     },
   ];
 
