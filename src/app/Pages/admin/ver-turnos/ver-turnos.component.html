@@ -6,22 +6,23 @@
 <div fxLayout="column">
     <div fxLayoutAlign="center" class="head">
         <div>
-            <form class="search" [formGroup]="">
+            <form class="search" [formGroup]="buscarForm">
                 <mat-form-field class="mat-form-field">
                     <mat-label>Buscar Contratista</mat-label>
-                    <input type="text" matInput placeholder="Documento...">
+                    <input formControlName="documento" type="text" matInput placeholder="Documento...">
                 </mat-form-field>
-                <button mat-button>
-                    <mat-icon class="button" matSuffix>search</mat-icon>
+                <button mat-button (click)="buscar()">
+                    <mat-icon class="button">search</mat-icon>
                 </button>
 
             </form>
             <button class="button" mat-button routerLink="../">
                 <mat-icon>keyboard_backspace</mat-icon> Volver
             </button>
-            <button class="button" style="margin-left: 10px;" mat-button routerLink="../">
+            <button class="button" style="margin-left: 10px;" mat-button (click)="sinTurno()">
                 Contratistas sin turno
             </button>
+
         </div>
     </div>
 
@@ -33,28 +34,29 @@
             </ng-container>
             <ng-container matColumnDef="identificacion">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Identificación </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.id}} </td>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.documento}} </td>
             </ng-container>
             <ng-container matColumnDef="jornada">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Jornada </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.jornada}} </td>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].jornada.nombreJornada}} </td>
             </ng-container>
             <ng-container matColumnDef="labor">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Labor </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.labor}} </td>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].labor}} </td>
             </ng-container>
             <ng-container matColumnDef="fecha">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.fecha | date:'d/MMMM/yyyy'}}
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].fechaInicio |
+                    date:'d/MMMM/yyyy'}}
                 </td>
             </ng-container>
             <ng-container matColumnDef="inicio">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Inicio </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.inicio}} </td>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].horaInicio}} </td>
             </ng-container>
             <ng-container matColumnDef="final">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Final </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.final}} </td>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].horaFin}} </td>
             </ng-container>
             <ng-container matColumnDef="acciones">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Accciones </th>

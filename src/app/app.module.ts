@@ -13,6 +13,7 @@ import { RegistroComponent } from './Core/Auth/Pages/registro/registro.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './Shared/Components/dialog/dialog.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
   ],
   entryComponents: [
     DialogComponent
