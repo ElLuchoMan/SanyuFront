@@ -19,6 +19,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -44,7 +48,9 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     MatSortModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    NgxMatFileInputModule,
+
   ]
 })
 export class MaterialModule { }

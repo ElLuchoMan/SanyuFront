@@ -4,60 +4,95 @@
     <button class="card-button2" mat-button [routerLink]="[ '/home']">Cerrar sesión</button>
 </mat-toolbar>
 <div fxLayout="column">
-    <div fxLayoutAlign="center" class="head">
-        <div>
-            <form class="search">
-                <mat-form-field class="mat-form-field">
-                    <mat-label>Buscar Contratista</mat-label>
-                    <input type="text" matInput placeholder="Documento...">
-                </mat-form-field>
-                <button mat-button>
-                    <mat-icon class="button" matSuffix>search</mat-icon>
+    <div class="container">
+        <div fxLayoutAlign="center" class="head">
+            <div>
+                <form class="search" [formGroup]="buscarForm">
+                    <mat-form-field class="mat-form-field">
+                        <mat-label>Buscar Contratista</mat-label>
+                        <input type="text" matInput placeholder="Documento...">
+                    </mat-form-field>
+                    <button mat-button (click)="consultar()">
+                        <mat-icon class="button" matSuffix>search</mat-icon>
+                    </button>
+
+                </form>
+                <button class="button" mat-button routerLink="../">
+                    <mat-icon>keyboard_backspace</mat-icon> Volver
                 </button>
-
-            </form>
-            <button class="button" mat-button routerLink="../">
-                <mat-icon>keyboard_backspace</mat-icon> Volver
-            </button>
-            <button class="button" style="margin-left: 10px;" mat-button routerLink="../">
-                Contratistas sin turno
-            </button>
+                <button class="button" style="margin-left: 10px;" mat-button routerLink="/pages/users/admin/masivos">
+                    Carga masiva
+                </button>
+            </div>
         </div>
+        <hr style="margin-top: 20px;">
     </div>
-
+    <!-- Formulario de adición de turnos -->
     <div class="center-content">
         <mat-card class="example-card">
             <mat-card-content>
                 <label> <strong>Nombre: </strong>{{'Bryan Luis'}}</label>
                 <label style="margin-left: 20px;"> <strong>Documento: </strong>{{'1015466494'}}</label>
-                <form class="example-form">
-                    <mat-form-field appearance="outline">
+                <form autocomplete="off" [formGroup]="agregarTurnoForm">
+                    <mat-form-field appearance="outline" class="completo">
                         <mat-label>Labor</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let labor of labores" [value]="labor.value">
-                                {{labor.nombre}}
+                        <mat-select formControlName="labor">
+                            <mat-option [value]="usuario.nombre" *ngFor="let usuario of labores">{{usuario.nombre}}
                             </mat-option>
                         </mat-select>
+                        <mat-hint>Seleccione la labor a desempeñar</mat-hint>
+                        <mat-error>Campo obligatorio</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" class="completo">
                         <mat-label>Fecha</mat-label>
-                        <input matInput [matDatepicker]="picker">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <input matInput formControlName="fecha" [matDatepicker]="picker" autocomplete="off">
+                        <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint>Ingrese la fecha de la cita</mat-hint>
+                        <mat-error>La fecha es obligatoria</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" class="completo">
                         <mat-label>Jornada</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="jornada">
                             <mat-option *ngFor="let jornada of jornadas" [value]="jornada.value">
                                 {{jornada.nombre}}
                             </mat-option>
                         </mat-select>
+                        <mat-hint>Seleccione la jornada de trabajo</mat-hint>
+                        <mat-error>Campo obligatorio</mat-error>
                     </mat-form-field>
-
-                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
-                        
+                    <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
+                        <mat-form-field appearance="outline" class="medio">
+                            <mat-label>Hora Inicio</mat-label>
+                            <input id="horaInicio" matInput [ngxTimepicker]="hora" [format]="24"
+                                formControlName="horaInicio" min="06:00 am" max="14:00 pm" [disableClick]="false" />
+                            <mat-icon class="button" matSuffix (click)="hora.open()">schedule</mat-icon>
+                            <ngx-material-timepicker [hoursOnly]="true" #hora [editableHintTmpl]="hint" #with5Gap>
+                            </ngx-material-timepicker>
+                            <mat-hint>Seleccione la hora de inicio</mat-hint>
+                            <ng-template #hint>
+                                <span class="time-hint">Ingrese la hora en formato 24 horas</span>
+                            </ng-template>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
+                            <mat-label>Hora Fin</mat-label>
+                            <input id="horaFin" matInput [ngxTimepicker]="hora2" [format]="24" formControlName="horaFin"
+                                min="14:00 am" max="10:00 pm" [disableClick]="false" />
+                            <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
+                            <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
+                                2 </ngx-material-timepicker>
+                            <mat-hint>Seleccione la hora de salida</mat-hint>
+                            <ng-template #hint>
+                                <span class="time-hint">Ingrese la hora en formato 24 horas</span>
+                            </ng-template>
+                        </mat-form-field>
                     </div>
                 </form>
             </mat-card-content>
+            <mat-card-actions>
+                <button class="card-button" mat-raised-button (click)="guardar()">
+                    <mat-icon>save</mat-icon> Guardar
+                </button>
+            </mat-card-actions>
         </mat-card>
     </div>

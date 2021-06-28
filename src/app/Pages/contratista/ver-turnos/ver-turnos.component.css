@@ -56,28 +56,8 @@ table {
 th.mat-header-cell {
     text-align: center !important;
 }
-
-.example-card {
-    max-width: 600px;
-    height: 500px;
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
-    /* min-height: 20vh; */
-}
-
-.center-content {
-    margin-top: 100px;
-    text-align: -webkit-center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.completo {
-    width: 550px;
-}
-
-.medio {
-    width: 255px;
+h1{
+    font-size: 50px;
+    margin-top: 20px;
+    font-family: sans-serif
 }

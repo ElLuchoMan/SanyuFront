@@ -16,7 +16,7 @@
                 <label> <strong>Horario: </strong>{{turnoHoy[0].horaInicio}} - {{turnoHoy[0].horaFin}}</label>
             </mat-card-content>
             <mat-card-actions fxLayoutAlign="center">
-                <button class="card-button mb-3" mat-button [routerLink]="">
+                <button class="card-button mb-3" mat-button (click)="openDialog()">
                     <mat-icon>add_task</mat-icon> Iniciar
                 </button>
             </mat-card-actions>

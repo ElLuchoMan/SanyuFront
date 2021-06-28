@@ -22,13 +22,11 @@ span {
 .card-button2 {
     background-color: var(--azul-claro);
     color: var(--azul-profundo);
-    /* font-weight: 200; */
     border: 1px solid var(--azul-claro);
 }
 
 .card-button2:hover {
     background-color: var(--azul-claro2);
-    /* font-weight: 200; */
     color: var(--azul-profundo);
 }
 
@@ -71,7 +69,6 @@ mat-list-item:hover, mat-list-item:active {
 
 .card-button:hover {
     background-color: var(--azul-claro2);
-    /* font-weight: 200; */
     color: #fff;
 }
 

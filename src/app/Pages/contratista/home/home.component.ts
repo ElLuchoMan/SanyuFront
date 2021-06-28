@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  turnoHoy: any[] = [{ labor: 'campo', jornada: 'mañana', horaInicio: '6:00', horaFin: '16:00' }];  
+  turnoHoy: any[] = [{ labor: 'campo', jornada: 'mañana', horaInicio: '6:00', horaFin: '16:00' }];
   // turnoHoy: any[] = [];
 
   cards = [
@@ -16,7 +19,8 @@ export class HomeComponent implements OnInit {
       subtitle: 'Consulta todos tus turnos',
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
-      urlTo: '/turnos',
+      urlTo: '/pages/users/contratista/turnos',
+      activo: true,
     },
     {
       avatar: 'pending_actions',
@@ -24,7 +28,8 @@ export class HomeComponent implements OnInit {
       subtitle: '¿Tuviste algún inconveniente? Háznoslo saber',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Reportar Incidentes',
-      // urlTo: '/servicios',
+      activo: false,
+      // urlTo:,
     },
     {
       avatar: 'how_to_reg',
@@ -33,14 +38,21 @@ export class HomeComponent implements OnInit {
       img: 'https://i.imgur.com/Fbq84jz.jpg',
       button: 'Asistente Virtual',
       urlTo: '/',
+      activo: false,
     },
   ];
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-  mostrar(){
+  mostrar() {
     console.log()
   }
-
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+      data: {
+        animal: 'panda'
+      }
+    });
+  }
 }

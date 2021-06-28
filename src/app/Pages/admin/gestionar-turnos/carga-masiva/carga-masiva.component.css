@@ -58,16 +58,14 @@ th.mat-header-cell {
 }
 
 .example-card {
-    max-width: 600px;
-    height: 500px;
-    /* display: flex; */
+    width: 600px;
+    max-height: 500px;
     align-items: center;
     justify-content: center;
-    /* min-height: 20vh; */
 }
 
 .center-content {
-    margin-top: 100px;
+    margin-top: 200px;
     text-align: -webkit-center;
     display: flex;
     align-items: center;
