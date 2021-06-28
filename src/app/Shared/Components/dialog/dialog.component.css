@@ -1,0 +1,11 @@
+.button {
+    background-color: var(--azul-claro);
+    color: white;
+    border: 1px solid var(--azul-claro);
+}
+
+.button-red {
+    background-color: var(--rojo);
+    color: white;
+    border: 1px solid var(--rojo);
+}

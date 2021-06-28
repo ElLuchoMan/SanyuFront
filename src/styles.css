@@ -31,6 +31,7 @@ input[type=number] {
   --azul-profundo2: #314251;
   --gris-claro: #b9bfc4;
   --gris-oscuro: #838787;
+  --rojo: #DA1212;
 }
 
 mat-card, mat-tab-group {
@@ -75,4 +76,3 @@ p.invalid-form, div.invalid-form {
   /* font-weight: 400; */
   color: #fff;
 }
-

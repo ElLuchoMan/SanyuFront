@@ -1,15 +1,5 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-    My favorite animal is:
-    <ul>
-        <li>
-            <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-        </li>
-        <li>
-            <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-        </li>
-        <li>
-            <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-        </li>
-    </ul>
+<h1>¿Está seguro?</h1>
+<div fxLayoutAlign="center">
+    <button class="button" mat-button>Si</button>
+    <button class="button-red" mat-button style="margin-left: 5px;">No</button>
 </div>

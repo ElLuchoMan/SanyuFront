@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
       subtitle: 'Listado de nuestros productos',
       img: 'https://i.imgur.com/tmDjT0m.jpg',
       button: 'Productos',
-      urlTo: '/productos',
+      urlTo: '/404',
     },
     {
       avatar: 'miscellaneous_services',

@@ -12,6 +12,7 @@ import { LoginComponent } from './Core/Auth/Pages/login/login.component';
 import { RegistroComponent } from './Core/Auth/Pages/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './Shared/Components/dialog/dialog.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DialogComponent } from './Shared/Components/dialog/dialog.component';
     LoginComponent,
     RegistroComponent,
     DialogComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,9 @@ import { DialogComponent } from './Shared/Components/dialog/dialog.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+  ],
+  entryComponents: [
+    DialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

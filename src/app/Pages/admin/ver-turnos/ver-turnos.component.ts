@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
 
 
 @Component({
@@ -16,15 +18,14 @@ export class VerTurnosComponent implements OnInit {
   // @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
   }
 
-
-
-
-
+  openDialog() {
+    this.dialog.open(DialogComponent);
+  }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
@@ -49,10 +49,6 @@ export class HomeComponent implements OnInit {
     console.log()
   }
   openDialog() {
-    this.dialog.open(DialogComponent, {
-      data: {
-        animal: 'panda'
-      }
-    });
+    this.dialog.open(DialogComponent);
   }
 }

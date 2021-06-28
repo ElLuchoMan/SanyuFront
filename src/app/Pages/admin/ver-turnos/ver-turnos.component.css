@@ -30,6 +30,11 @@ span {
     background-color: white;
     /* margin-left: 10px; */
 }
+.button-cancel {
+    color: var(--rojo);
+    background-color: white;
+    /* margin-left: 10px; */
+}
 
 .search {
     min-width: 250px;
