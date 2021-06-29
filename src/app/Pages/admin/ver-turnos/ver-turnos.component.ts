@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
@@ -14,7 +14,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 })
 export class VerTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
-    documento: ['',]
+    documento: ['', Validators.required]
   })
   displayedColumns = ['nombreContratista', 'identificacion', 'jornada', 'labor', 'fecha', 'inicio', 'final', 'acciones'];
   Date = new Date();
@@ -34,7 +34,7 @@ export class VerTurnosComponent implements OnInit {
     this.dialog.open(DialogComponent);
   }
   buscar() {
-    this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
+    this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
       if (data.estadoContratista = "Activo") {
         this.contratistas.push(data);
         console.log(data);

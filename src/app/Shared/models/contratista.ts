@@ -8,5 +8,5 @@ export interface Contratista {
     password: string,
     telefono: string,
     rol: Rol,
-    turnos: Turno,
+    turnos?: Turno,
 }

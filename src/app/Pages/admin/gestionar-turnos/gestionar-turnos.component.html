@@ -10,12 +10,11 @@
                 <form class="search" [formGroup]="buscarForm">
                     <mat-form-field class="mat-form-field">
                         <mat-label>Buscar Contratista</mat-label>
-                        <input type="text" matInput placeholder="Documento...">
+                        <input formControlName="documento" type="text" matInput placeholder="Documento...">
                     </mat-form-field>
-                    <button mat-button (click)="consultar()">
-                        <mat-icon class="button" matSuffix>search</mat-icon>
+                    <button mat-button (click)="buscar()">
+                        <mat-icon class="button">search</mat-icon>
                     </button>
-
                 </form>
                 <button class="button" mat-button routerLink="../">
                     <mat-icon>keyboard_backspace</mat-icon> Volver
@@ -28,11 +27,11 @@
         <hr style="margin-top: 20px;">
     </div>
     <!-- Formulario de adición de turnos -->
-    <div class="center-content">
+    <div class="center-content" *ngIf="contratista.length>0">
         <mat-card class="example-card">
             <mat-card-content>
-                <label> <strong>Nombre: </strong>{{'Bryan Luis'}}</label>
-                <label style="margin-left: 20px;"> <strong>Documento: </strong>{{'1015466494'}}</label>
+                <label> <strong>Nombre: </strong>{{contratista[0].nombre}}</label>
+                <label style="margin-left: 20px;"> <strong>Documento: </strong>{{contratista[0].documento}}</label>
                 <form autocomplete="off" [formGroup]="agregarTurnoForm">
                     <mat-form-field appearance="outline" class="completo">
                         <mat-label>Labor</mat-label>

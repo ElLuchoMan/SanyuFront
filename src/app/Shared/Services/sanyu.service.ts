@@ -10,8 +10,11 @@ import { Contratista } from '../models/contratista';
 export class SanyuService {
   baseUrl = environment.urlContratistas;
   constructor(private httpClient: HttpClient) { }
-  buscarContratista(documento: number): Observable<Contratista> {
+  buscarTurnosContratista(documento: number): Observable<Contratista> {
     return this.httpClient.get<Contratista>(this.baseUrl + `contratistas/turnos/${documento}`);
+  }
+  buscarContratista(documento: number): Observable<Contratista> {
+    return this.httpClient.get<Contratista>(this.baseUrl + `contratistas/${documento}`);
   }
 
   contratistasSinTurno(): Observable<Contratista> {
