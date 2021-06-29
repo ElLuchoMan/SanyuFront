@@ -61,7 +61,7 @@
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Accciones </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm>
                     <button class="button" mat-mini-fab color="primary"
-                        aria-label="Example icon button with a delete icon">
+                        aria-label="Example icon button with a delete icon" [routerLink]="['./pages/users/admin/turnos',contratista.turnos[0].idTurno]">
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button class="button-cancel" mat-mini-fab color="primary"

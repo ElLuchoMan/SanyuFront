@@ -42,6 +42,7 @@ export class VerTurnosComponent implements OnInit {
         console.log(data);
       } else {
         if (data[0] == null) {
+          
           this.toastr.error('No existe contratista con ese documento', '¡ERROR!');
         }
       }
