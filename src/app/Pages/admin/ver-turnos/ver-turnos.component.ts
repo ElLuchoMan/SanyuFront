@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
@@ -23,7 +24,7 @@ export class VerTurnosComponent implements OnInit {
   // @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder) { }
+  constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // this.buscar();
@@ -35,11 +36,16 @@ export class VerTurnosComponent implements OnInit {
   }
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
-      if (data.estadoContratista = "Activo") {
+      if (data[0] != null) {
         this.contratistas.push(data);
-        console.log(data);
         this.datasource = data;
+        console.log(data);
+      } else {
+        if (data[0] == null) {
+          this.toastr.error('No existe contratista con ese documento', '¡ERROR!');
+        }
       }
+     
     })
   }
   sinTurno() {

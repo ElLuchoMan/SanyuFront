@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div fxLayoutAlign="center">
+    <div fxLayoutAlign="center" *ngIf="contratistas.length>0">
         <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
             <ng-container matColumnDef="nombreContratista">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Contratista </th>
@@ -75,7 +75,8 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
+    <mat-paginator *ngIf="contratistas.length>0" [pageSize]="10" fxLayoutAlign="center"style="width: 90%; margin-left:96px;" [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
+</mat-paginator>
 
-    <!-- <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
-    </mat-paginator> -->
+
 </div>

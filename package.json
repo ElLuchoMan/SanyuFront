@@ -30,6 +30,7 @@
     "material": "^0.4.3",
     "ngx-bootstrap": "^6.2.0",
     "ngx-material-timepicker": "^5.5.3",
+    "ngx-toastr": "^14.0.0",
     "npm": "^7.18.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
