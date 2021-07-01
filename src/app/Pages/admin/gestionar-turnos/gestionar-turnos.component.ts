@@ -71,13 +71,13 @@ export class GestionarTurnosComponent implements OnInit {
 
     console.log(turno);
   }
-  jornada() {
-    this.sanyuService.getJornada().forEach(element => {
-      this.jornadas = element;
+  getJornadas() {
+    this.sanyuService.getJornada().forEach(data => {
+      this.jornadas = data;
     })
   }
   ngOnInit(): void {
-    this.jornada();
+    this.getJornadas();
   }
 
 

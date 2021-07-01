@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Contratista } from '../models/contratista';
 import { Jornada } from '../models/jornada';
+import { Turno } from '../models/turno';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,8 @@ export class SanyuService {
 
   getJornada(): Observable<Jornada> {
     return this.httpClient.get<Jornada>(this.baseUrl + 'jornadas/');
+  }
+  getTurno(idTurno: number): Observable<Turno> {
+    return this.httpClient.get<Turno>(this.baseUrl + `turnos/${idTurno}`);
   }
 }

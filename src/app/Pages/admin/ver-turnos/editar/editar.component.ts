@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Contratista } from 'src/app/Shared/models/contratista';
+import { Jornada } from 'src/app/Shared/models/jornada';
+import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
@@ -10,7 +12,9 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 })
 export class EditarComponent implements OnInit {
   contratista: Contratista[] = [];
-  documento: number = 0;
+  turno: Turno;
+  documento: number;
+  id: string | null;
   editarTurnoForm: FormGroup = this.fb.group({
     nombre: ['',],
     documento: ['',],
@@ -25,11 +29,7 @@ export class EditarComponent implements OnInit {
     { value: 'Campo', nombre: 'Campo' },
     { value: 'Oficina', nombre: 'Oficina' },
   ];
-  jornadas: any[] = [
-    { value: '1', nombre: 'Mañana' },
-    { value: '2', nombre: 'Tarde' },
-    { value: '3', nombre: 'Oficina' }
-  ];
+  jornadas: Jornada;
 
   guardar() {
     const turno: any = {
@@ -44,9 +44,14 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getJornadas();
   }
 
-
+  getJornadas() {
+    this.sanyuService.getJornada().forEach(data => {
+      this.jornadas = data;
+    })
+  }
   constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
 
 }
