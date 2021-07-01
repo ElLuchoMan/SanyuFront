@@ -34,10 +34,14 @@
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Identificación </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.documento}} </td>
             </ng-container>
+            <ng-container matColumnDef="telefono">
+                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
+                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.telefono}} </td>
+            </ng-container>
             <ng-container matColumnDef="jornada">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Jornada </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm>
-                    {{contratista.turnos[0].jornada[0].nombreJornada}} </td>
+                    {{contratista.turnos[0].jornada.nombreJornada}} </td>
             </ng-container>
             <ng-container matColumnDef="labor">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Labor </th>

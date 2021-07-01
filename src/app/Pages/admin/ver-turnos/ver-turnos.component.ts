@@ -17,7 +17,7 @@ export class VerTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
     documento: ['', Validators.required]
   })
-  displayedColumns = ['nombreContratista', 'identificacion', 'fecha', 'inicio', 'final', 'acciones'];
+  displayedColumns = ['nombreContratista', 'identificacion', 'telefono', 'labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
   Date = new Date();
   datasource: any;
   contratistas: Contratista[] = [];
@@ -48,6 +48,8 @@ export class VerTurnosComponent implements OnInit {
           }
         }
       }
+    }, error => {
+      this.toastr.error('No existe un contratista con ese documento o no hay acceso a la base de datos', '¡ERROR!');
     })
   }
   mostrar() {
@@ -56,11 +58,11 @@ export class VerTurnosComponent implements OnInit {
   sinTurno() {
     this.sanyuService.contratistasSinTurno().subscribe(data => {
       console.log(data);
-      if (data.estadoContratista = "Activo") {
+      // if (data.estadoContratista == 'Activo') {
         this.contratistas.push(data);
         console.log(data);
         this.datasource = data;
-      }
+      // }
     })
   }
 }

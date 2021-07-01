@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'turnos', component: VerTurnosComponent },
       { path: 'gestionar', component: GestionarTurnosComponent },
+      // {path:'sin-turno', component:},
       { path: 'masivos', component: CargaMasivaComponent },
       { path: 'modificar/:idTurno', component: EditarComponent },
     ]

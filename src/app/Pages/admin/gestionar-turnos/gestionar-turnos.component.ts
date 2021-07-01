@@ -43,16 +43,21 @@ export class GestionarTurnosComponent implements OnInit {
   buscar() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
       console.log(data);
-      if (data.estadoContratista == 'Activo') {
-        this.contratista.push(data);
-        this.documento = data.documento;
-        console.log(data.documento);
-      } else {
-        if (data.estadoContratista == 'Inactivo') {
-          this.toastr.error('El contratista no se encuentra activo', '¡ERROR!');
+      if (data != null) {
+        if (data.estadoContratista == 'Activo') {
+          this.contratista.push(data);
+          this.documento = data.documento;
+          console.log(data.documento);
+        } else {
+          if (data.estadoContratista == 'Inactivo') {
+            this.toastr.error('El contratista no se encuentra activo', '¡ERROR!');
+          }
         }
       }
-    })
+    }, error => {
+      this.toastr.error('No existe un contratista con ese documento o no hay acceso a la base de datos', '¡ERROR!');
+    }
+    )
   }
 
   guardar() {
