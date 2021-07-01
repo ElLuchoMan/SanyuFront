@@ -55,15 +55,6 @@ export class VerTurnosComponent implements OnInit {
   mostrar() {
     // console.log(this.contratistas.turnos[0])
   }
-  sinTurno() {
-    this.sanyuService.contratistasSinTurno().subscribe(data => {
-      console.log(data);
-      // if (data.estadoContratista == 'Activo') {
-        this.contratistas.push(data);
-        console.log(data);
-        this.datasource = data;
-      // }
-    })
-  }
+ 
 }
 

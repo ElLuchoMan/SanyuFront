@@ -4,6 +4,7 @@ import { CargaMasivaComponent } from './gestionar-turnos/carga-masiva/carga-masi
 import { GestionarTurnosComponent } from './gestionar-turnos/gestionar-turnos.component';
 import { HomeComponent } from './home/home.component';
 import { EditarComponent } from './ver-turnos/editar/editar.component';
+import { SinTurnoComponent } from './ver-turnos/sin-turno/sin-turno.component';
 import { VerTurnosComponent } from './ver-turnos/ver-turnos.component';
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'turnos', component: VerTurnosComponent },
       { path: 'gestionar', component: GestionarTurnosComponent },
-      // {path:'sin-turno', component:},
+      { path: 'sin-turno', component: SinTurnoComponent },
       { path: 'masivos', component: CargaMasivaComponent },
       { path: 'modificar/:idTurno', component: EditarComponent },
     ]

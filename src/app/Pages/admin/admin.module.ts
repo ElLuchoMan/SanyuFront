@@ -10,13 +10,14 @@ import { GestionarTurnosComponent } from './gestionar-turnos/gestionar-turnos.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { CargaMasivaComponent } from './gestionar-turnos/carga-masiva/carga-masiva.component';
 import { EditarComponent } from './ver-turnos/editar/editar.component';
+import { SinTurnoComponent } from './ver-turnos/sin-turno/sin-turno.component';
 
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, VerTurnosComponent, GestionarTurnosComponent, CargaMasivaComponent, EditarComponent],
+  declarations: [HomeComponent, VerTurnosComponent, GestionarTurnosComponent, CargaMasivaComponent, EditarComponent, SinTurnoComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
