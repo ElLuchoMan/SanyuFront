@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'gestionar', component: GestionarTurnosComponent },
       { path: 'sin-turno', component: SinTurnoComponent },
       { path: 'masivos', component: CargaMasivaComponent },
-      { path: 'modificar/:idTurno', component: EditarComponent },
+      { path: 'modificar/:id', component: EditarComponent },
     ]
   }
 ];

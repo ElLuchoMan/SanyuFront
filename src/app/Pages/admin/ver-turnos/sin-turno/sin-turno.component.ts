@@ -14,7 +14,7 @@ export class SinTurnoComponent implements OnInit {
   })
   datasource: any;
   contratistas: Contratista[] = [];
-  displayedColumns = ['nombreContratista', 'identificacion', 'telefono'];
+  displayedColumns = ['nombreContratista', 'identificacion', 'rol', 'telefono'];
   constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
 
   ngOnInit(): void {
@@ -23,11 +23,9 @@ export class SinTurnoComponent implements OnInit {
   sinTurno() {
     this.sanyuService.contratistasSinTurno().subscribe(data => {
       console.log(data);
-      // if (data.estadoContratista != 'Inactivo') {
       this.contratistas.push(data);
       console.log(data);
       this.datasource = data;
-      // }
     })
   }
 }
