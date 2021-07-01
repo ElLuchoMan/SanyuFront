@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Jornada } from 'src/app/Shared/models/jornada';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
@@ -28,14 +29,28 @@ export class GestionarTurnosComponent implements OnInit {
     { value: 'Oficina', nombre: 'Oficina' },
   ];
   jornadas: Jornada;
-
+  inicio: any[] = [
+    { value: '06:00 am', nombre: '6:00 am' },
+    { value: '02:00 pm', nombre: '02:00 pm' },
+    { value: '10:00 pm', nombre: '10:00 pm' },
+  ]
+  fin: any[] = [
+    { value: '02:00 pm', nombre: '02:00 pm' },
+    { value: '10:00 pm', nombre: '10:00 pm' },
+    { value: '06:00 am', nombre: '6:00 am' },
+  ]
 
   buscar() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
-      if (data.estadoContratista = "Activo") {
+      console.log(data);
+      if (data.estadoContratista == 'Activo') {
         this.contratista.push(data);
         this.documento = data.documento;
         console.log(data.documento);
+      } else {
+        if (data.estadoContratista == 'Inactivo') {
+          this.toastr.error('El contratista no se encuentra activo', '¡ERROR!');
+        }
       }
     })
   }
@@ -61,6 +76,6 @@ export class GestionarTurnosComponent implements OnInit {
   }
 
 
-  constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
+  constructor(private fb: FormBuilder, private sanyuService: SanyuService, private toastr: ToastrService) { }
 
 }

@@ -34,19 +34,20 @@ export class VerTurnosComponent implements OnInit {
   }
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
-      if (data[0] != null) {
-        this.contratistas.push(data);
-        this.datasource = data;
-        console.log(data);
+      console.log(data);
+      if (data.estadoContratista == 'Inactivo') {
+        this.toastr.error('Contratista inactivo', '¡ERROR!');
       } else {
-        if (data[0] == null) {
-          this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
-        } if (data.estadoContratista == 'Activo') {
-          this.toastr.error('Contratista inactivo', '¡ERROR!');
-
+        if (data[0] != null) {
+          this.contratistas.push(data);
+          this.datasource = data;
+          console.log(data);
+        } else {
+          if (data.turnos == null) {
+            this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
+          }
         }
       }
-
     })
   }
   mostrar() {

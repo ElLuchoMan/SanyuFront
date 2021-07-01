@@ -57,35 +57,30 @@
                             <mat-option [value]="jornada.idJornada" *ngFor="let jornada of jornadas">
                                 {{jornada.nombreJornada}}
                             </mat-option>
-
                         </mat-select>
                         <mat-hint>Seleccione la jornada de trabajo</mat-hint>
                         <mat-error>Campo obligatorio</mat-error>
                     </mat-form-field>
                     <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
                         <mat-form-field appearance="outline" class="medio">
-                            <mat-label>Hora Inicio</mat-label>
-                            <input id="horaInicio" matInput [ngxTimepicker]="hora" [format]="24"
-                                formControlName="horaInicio" min="06:00 am" max="14:00 pm" [disableClick]="false" />
-                            <mat-icon class="button" matSuffix (click)="hora.open()">schedule</mat-icon>
-                            <ngx-material-timepicker [hoursOnly]="true" #hora [editableHintTmpl]="hint" #with5Gap>
-                            </ngx-material-timepicker>
-                            <mat-hint>Seleccione la hora de inicio</mat-hint>
-                            <ng-template #hint>
-                                <span class="time-hint">Ingrese la hora en formato 24 horas</span>
-                            </ng-template>
+                            <mat-label>Hora inicio</mat-label>
+                            <mat-select formControlName="horaInicio">
+                                <mat-option [value]="inicio.value" *ngFor="let inicio of inicio">
+                                    {{inicio.nombre}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione la jornada de trabajo</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
                             <mat-label>Hora Fin</mat-label>
-                            <input id="horaFin" matInput [ngxTimepicker]="hora2" [format]="24" formControlName="horaFin"
-                                min="14:00 am" max="10:00 pm" [disableClick]="false" />
-                            <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
-                            <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
-                                2 </ngx-material-timepicker>
-                            <mat-hint>Seleccione la hora de salida</mat-hint>
-                            <ng-template #hint>
-                                <span class="time-hint">Ingrese la hora en formato 24 horas</span>
-                            </ng-template>
+                            <mat-select formControlName="horaFin">
+                                <mat-option [value]="fin.value" *ngFor="let fin of fin">
+                                    {{fin.nombre}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione la jornada de trabajo</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
                         </mat-form-field>
                     </div>
                 </form>
