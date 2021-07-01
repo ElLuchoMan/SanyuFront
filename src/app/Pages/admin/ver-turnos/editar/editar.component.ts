@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Jornada } from 'src/app/Shared/models/jornada';
 import { Turno } from 'src/app/Shared/models/turno';
@@ -14,7 +15,7 @@ export class EditarComponent implements OnInit {
   contratista: Contratista[] = [];
   turno: Turno;
   documento: number;
-  id: string | null;
+  id: string;
   editarTurnoForm: FormGroup = this.fb.group({
     nombre: ['',],
     documento: ['',],
@@ -25,6 +26,10 @@ export class EditarComponent implements OnInit {
     horaFin: ['',],
 
   })
+  constructor(private fb: FormBuilder, private sanyuService: SanyuService, private aRoute: ActivatedRoute) {
+    this.id = this.aRoute.snapshot.paramMap.get('idTurno');
+  }
+
   labores: any[] = [
     { value: 'Campo', nombre: 'Campo' },
     { value: 'Oficina', nombre: 'Oficina' },
@@ -45,6 +50,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJornadas();
+    this.getTurno();
   }
 
   getJornadas() {
@@ -52,6 +58,11 @@ export class EditarComponent implements OnInit {
       this.jornadas = data;
     })
   }
-  constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
+
+  getTurno() {
+    this.sanyuService.getTurno(this.id).subscribe(data => {
+      console.log(data);
+    })
+  }
 
 }

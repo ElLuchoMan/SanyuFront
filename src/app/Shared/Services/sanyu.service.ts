@@ -26,7 +26,7 @@ export class SanyuService {
   getJornada(): Observable<Jornada> {
     return this.httpClient.get<Jornada>(this.baseUrl + 'jornadas/');
   }
-  getTurno(idTurno: number): Observable<Turno> {
+  getTurno(idTurno: string): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/${idTurno}`);
   }
 }

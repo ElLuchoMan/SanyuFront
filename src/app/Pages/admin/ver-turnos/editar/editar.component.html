@@ -41,7 +41,7 @@
                         <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
                             <mat-label>Hora Fin</mat-label>
                             <input id="horaFin" matInput [ngxTimepicker]="hora2" [format]="24" formControlName="horaFin"
-                                min="14:00 am" max="10:00 pm" [disableClick]="false" />
+                                min="14:00 am" max="06:00 am" [disableClick]="false" />
                             <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
                             <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
                                 2 </ngx-material-timepicker>
