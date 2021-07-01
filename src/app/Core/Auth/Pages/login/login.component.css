@@ -54,6 +54,16 @@
     margin-top: 10px;
 }
 
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: var(--azul-claro)!important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: var(--azul-claro);
+    ;
+}
+
 mat-card-header {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -66,5 +76,5 @@ mat-card-header {
 .tittle {
     font-weight: bold;
     font-size: 2em;
-    font-family: 'Signika','Belgrano', serif;
+    font-family: 'Signika', 'Belgrano', serif;
 }

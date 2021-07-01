@@ -17,7 +17,7 @@ export class VerTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
     documento: ['', Validators.required]
   })
-  displayedColumns = ['nombreContratista', 'identificacion', 'jornada', 'labor', 'fecha', 'inicio', 'final', 'acciones'];
+  displayedColumns = ['nombreContratista', 'identificacion', 'fecha', 'inicio', 'final', 'acciones'];
   Date = new Date();
   datasource: any;
   contratistas: Contratista[] = [];
@@ -27,8 +27,6 @@ export class VerTurnosComponent implements OnInit {
   constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    // this.buscar();
-    // this.sinTurno();
   }
 
   openDialog() {
@@ -42,12 +40,17 @@ export class VerTurnosComponent implements OnInit {
         console.log(data);
       } else {
         if (data[0] == null) {
-          
-          this.toastr.error('No existe contratista con ese documento', '¡ERROR!');
+          this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
+        } if (data.estadoContratista == 'Activo') {
+          this.toastr.error('Contratista inactivo', '¡ERROR!');
+
         }
       }
-     
+
     })
+  }
+  mostrar() {
+    // console.log(this.contratistas.turnos[0])
   }
   sinTurno() {
     this.sanyuService.contratistasSinTurno().subscribe(data => {

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Contratista } from 'src/app/Shared/models/contratista';
+import { Jornada } from 'src/app/Shared/models/jornada';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
@@ -26,17 +27,15 @@ export class GestionarTurnosComponent implements OnInit {
     { value: 'Campo', nombre: 'Campo' },
     { value: 'Oficina', nombre: 'Oficina' },
   ];
-  jornadas: any[] = [
-    { value: '1', nombre: 'Mañana' },
-    { value: '2', nombre: 'Tarde' },
-    { value: '3', nombre: 'Oficina' }
-  ];
+  jornadas: Jornada;
+
+
   buscar() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
       if (data.estadoContratista = "Activo") {
         this.contratista.push(data);
-        this.documento = data[0].documento;
-        console.log(data[0]);
+        this.documento = data.documento;
+        console.log(data.documento);
       }
     })
   }
@@ -52,8 +51,13 @@ export class GestionarTurnosComponent implements OnInit {
 
     console.log(turno);
   }
-
+  jornada() {
+    this.sanyuService.getJornada().forEach(element => {
+      this.jornadas = element;
+    })
+  }
   ngOnInit(): void {
+    this.jornada();
   }
 
 

@@ -23,6 +23,7 @@
                     Carga masiva
                 </button>
             </div>
+
         </div>
         <hr style="margin-top: 20px;">
     </div>
@@ -53,9 +54,10 @@
                     <mat-form-field appearance="outline" class="completo">
                         <mat-label>Jornada</mat-label>
                         <mat-select formControlName="jornada">
-                            <mat-option *ngFor="let jornada of jornadas" [value]="jornada.value">
-                                {{jornada.nombre}}
+                            <mat-option [value]="jornada.idJornada" *ngFor="let jornada of jornadas">
+                                {{jornada.nombreJornada}}
                             </mat-option>
+
                         </mat-select>
                         <mat-hint>Seleccione la jornada de trabajo</mat-hint>
                         <mat-error>Campo obligatorio</mat-error>
