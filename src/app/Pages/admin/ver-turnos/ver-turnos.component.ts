@@ -29,7 +29,7 @@ export class VerTurnosComponent implements OnInit {
   constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-  
+
   }
 
   openDialog() {
@@ -38,9 +38,11 @@ export class VerTurnosComponent implements OnInit {
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
       console.log(data);
-      this.turnos.push(data);
-      this.datasource = data;
-      this.mostrarContratista();
+      if (data != null) {
+        this.turnos.push(data);
+        this.datasource = data;
+        this.mostrarContratista();
+      }
       // if (data.estadoContratista == 'Inactivo') {
       //   this.toastr.error('Contratista inactivo', '¡ERROR!');
       // } else {
