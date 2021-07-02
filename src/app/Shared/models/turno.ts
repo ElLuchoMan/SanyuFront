@@ -10,7 +10,7 @@ export interface Turno {
     idTurno: number,
     inicioTurno: string,
     jornada: Jornada,
-    Labor: string,
+    labor: string,
     modificador: string,
     observacion: string,
 }

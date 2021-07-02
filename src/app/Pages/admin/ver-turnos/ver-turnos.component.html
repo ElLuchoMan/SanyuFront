@@ -23,50 +23,40 @@
             </button>
         </div>
     </div>
-
-    <div fxLayoutAlign="center" *ngIf="contratistas.length>0">
+    <div *ngIf="turnos.length>0" fxLayoutAlign="center" style="margin-top: 40px;">
+        <h1>Turnos para: {{contratista.nombre}}</h1>
+    </div>
+    <div fxLayoutAlign="center" *ngIf="turnos.length>0">
         <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
-            <ng-container matColumnDef="nombreContratista">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Contratista </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.nombre}} </td>
-            </ng-container>
-            <ng-container matColumnDef="identificacion">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Identificación </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.documento}} </td>
-            </ng-container>
-            <ng-container matColumnDef="telefono">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.telefono}} </td>
-            </ng-container>
             <ng-container matColumnDef="jornada">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Jornada </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm>
-                    {{contratista.turnos[0].jornada.nombreJornada}} </td>
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm>
+                    {{turno.jornada.nombreJornada}} </td>
             </ng-container>
             <ng-container matColumnDef="labor">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Labor </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].labor}} </td>
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm> {{turno.labor}} </td>
             </ng-container>
             <ng-container matColumnDef="fecha">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].fechaInicio |
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm> {{turno.fechaInicio |
                     date:'d/MMMM/yyyy'}}
                 </td>
             </ng-container>
             <ng-container matColumnDef="inicio">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Inicio </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].horaInicio}} </td>
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm> {{turno.horaInicio}} </td>
             </ng-container>
             <ng-container matColumnDef="final">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Final </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.turnos[0].horaFin}} </td>
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm> {{turno.horaFin}} </td>
             </ng-container>
             <ng-container matColumnDef="acciones">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Accciones </th>
-                <td mat-cell *matCellDef="let contratista" fxHide.lt-sm>
+                <td mat-cell *matCellDef="let turno" fxHide.lt-sm>
                     <button class="button" mat-mini-fab color="primary"
-                        aria-label="Example icon button with a delete icon" (click)="mostrar()"
-                        [routerLink]="['/pages/users/admin/modificar',contratista.turnos[0].idTurno]">
+                        aria-label="Example icon button with a delete icon"
+                        [routerLink]="['/pages/users/admin/modificar',turno.idTurno]">
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button class="button-cancel" mat-mini-fab color="primary"
@@ -80,8 +70,8 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <mat-paginator *ngIf="contratistas.length>0" [pageSize]="10" fxLayoutAlign="center"
-        style="width: 90%; margin-left:96px;" [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
+    <mat-paginator *ngIf="turnos.length>0" [pageSize]="10" fxLayoutAlign="center" style="width: 90%; margin-left:96px;"
+        [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
     </mat-paginator>
 
 

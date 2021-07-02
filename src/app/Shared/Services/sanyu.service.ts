@@ -12,8 +12,8 @@ import { Turno } from '../models/turno';
 export class SanyuService {
   baseUrl = environment.urlContratistas;
   constructor(private httpClient: HttpClient) { }
-  buscarTurnosContratista(documento: number): Observable<Contratista> {
-    return this.httpClient.get<Contratista>(this.baseUrl + `contratistas/turnos/${documento}`);
+  buscarTurnosContratista(documento: number): Observable<Turno> {
+    return this.httpClient.get<Turno>(this.baseUrl + `turnos/turno/${documento}`);
   }
   buscarContratista(documento: number): Observable<Contratista> {
     return this.httpClient.get<Contratista>(this.baseUrl + `contratistas/${documento}`);
@@ -26,7 +26,7 @@ export class SanyuService {
   getJornada(): Observable<Jornada> {
     return this.httpClient.get<Jornada>(this.baseUrl + 'jornadas/');
   }
-  getTurno(idTurno: string): Observable<Turno> {
+  getTurno(idTurno): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/${idTurno}`);
   }
 }

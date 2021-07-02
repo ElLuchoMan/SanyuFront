@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
 import { Contratista } from 'src/app/Shared/models/contratista';
+import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 
@@ -17,16 +18,18 @@ export class VerTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
     documento: ['', Validators.required]
   })
-  displayedColumns = ['nombreContratista', 'identificacion', 'telefono', 'labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
+  displayedColumns = ['labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
   Date = new Date();
   datasource: any;
-  contratistas: Contratista[] = [];
+  contratista: Contratista;
+  turnos: Turno[] = [];
   // @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  
   }
 
   openDialog() {
@@ -35,26 +38,36 @@ export class VerTurnosComponent implements OnInit {
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
       console.log(data);
-      if (data.estadoContratista == 'Inactivo') {
-        this.toastr.error('Contratista inactivo', '¡ERROR!');
-      } else {
-        if (data[0] != null) {
-          this.contratistas.push(data);
-          this.datasource = data;
-          console.log(data);
-        } else {
-          if (data.turnos == null) {
-            this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
-          }
-        }
-      }
+      this.turnos.push(data);
+      this.datasource = data;
+      this.mostrarContratista();
+      // if (data.estadoContratista == 'Inactivo') {
+      //   this.toastr.error('Contratista inactivo', '¡ERROR!');
+      // } else {
+      //   if (data[0] != null) {
+      //     this.turnos.push(data);
+      //     this.datasource = data;
+      //     // console.log(data);
+      //   } else {
+      //     if (data.turnos == null) {
+      //       this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
+      //     } else {
+      //      if (data.turnos != null){
+      //         this.turnos.push(data.turnos);
+      //       }
+      //     }
+      //   }
+      // }
     }, error => {
       this.toastr.error('No existe un contratista con ese documento o no hay acceso a la base de datos', '¡ERROR!');
     })
   }
-  mostrar() {
-    // console.log(this.contratistas.turnos[0])
+  mostrarContratista() {
+    this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
+      console.log(data);
+      this.contratista = data;
+    })
   }
- 
+
 }
 

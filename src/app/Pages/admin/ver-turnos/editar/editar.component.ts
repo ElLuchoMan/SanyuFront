@@ -13,9 +13,9 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 })
 export class EditarComponent implements OnInit {
   contratista: Contratista[] = [];
-  turno: Turno;
+  turnos: Turno[]=[];
+  id: any = 0;
   documento: number;
-  id: string;
   editarTurnoForm: FormGroup = this.fb.group({
     nombre: ['',],
     documento: ['',],
@@ -27,7 +27,7 @@ export class EditarComponent implements OnInit {
 
   })
   constructor(private fb: FormBuilder, private sanyuService: SanyuService, private aRoute: ActivatedRoute) {
-    this.id = this.aRoute.snapshot.paramMap.get('idTurno');
+
   }
 
   labores: any[] = [
@@ -49,8 +49,9 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getJornadas();
+    this.id = this.aRoute.snapshot.paramMap.get('id');
     this.getTurno();
+    this.getJornadas();
   }
 
   getJornadas() {
@@ -62,6 +63,8 @@ export class EditarComponent implements OnInit {
   getTurno() {
     this.sanyuService.getTurno(this.id).subscribe(data => {
       console.log(data);
+      this.turnos.push(data);
+      // console.log(this.turnos[0].labor);
     })
   }
 

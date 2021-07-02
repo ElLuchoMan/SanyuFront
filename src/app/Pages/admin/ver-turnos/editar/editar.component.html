@@ -18,7 +18,7 @@
     <div class="center-content">
         <mat-card class="example-card">
             <mat-card-content>
-                <mat-form-field class="completo" appearance="outline">
+                <mat-form-field class="completo" appearance="outline" style="margin-top: 30px;">
                     <mat-label>Contratista</mat-label>
                     <input matInput disabled value="{{'Bryan Luis'}}">
                 </mat-form-field>
@@ -28,14 +28,14 @@
                 </mat-form-field>
                 <mat-form-field class="completo" appearance="outline">
                     <mat-label>Labor</mat-label>
-                    <input matInput disabled value="{{'Campo'}}">
+                    <input matInput disabled value="{{turnos[0].labor}}">
                 </mat-form-field>
                 <form autocomplete="off" [formGroup]="editarTurnoForm">
 
                     <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
                         <mat-form-field class="medio" appearance="outline">
                             <mat-label>Hora Inicio</mat-label>
-                            <input matInput disabled value="{{'6:00'}}">
+                            <input matInput disabled value="{{turnos[0].horaInicio}}">
                             <mat-hint>Hora de entrada</mat-hint>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
@@ -45,7 +45,7 @@
                             <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
                             <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
                                 2 </ngx-material-timepicker>
-                            <mat-hint>Seleccione la hora de salida</mat-hint>
+                            <mat-hint>Hora inicial de salida: <strong>{{turnos[0].horaFin}}</strong></mat-hint>
                             <ng-template #hint>
                                 <span class="time-hint">Ingrese la hora en formato 24 horas</span>
                             </ng-template>
