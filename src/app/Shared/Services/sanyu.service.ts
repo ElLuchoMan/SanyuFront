@@ -29,4 +29,8 @@ export class SanyuService {
   getTurno(idTurno): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/${idTurno}`);
   }
+actualizarTurno(idTurno, turno:Turno){
+  return this.httpClient.put<Turno>(this.baseUrl+`turnos/actualizar/${idTurno}` , turno);
+}
+
 }

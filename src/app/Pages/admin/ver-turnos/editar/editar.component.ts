@@ -53,7 +53,7 @@ export class EditarComponent implements OnInit {
   }
   guardar() {
     const turno: Turno = {
-      fechaFin: this.turnos[0].fechaInicio,
+      fechaFin: null,
       fechaInicio: this.turnos[0].fechaInicio,
       fechaModificacion: new Date(),
       finTurno: null,
@@ -67,6 +67,9 @@ export class EditarComponent implements OnInit {
       observacion: this.editarTurnoForm.get('observacion').value,
 
     };
-    console.log(turno);
+    this.sanyuService.actualizarTurno(this.id, turno).subscribe(data => {
+      console.log('Actualizado');
+      console.log(turno.fechaModificacion);
+    })
   }
 }

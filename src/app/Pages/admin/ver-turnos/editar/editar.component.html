@@ -27,20 +27,20 @@
                 <form autocomplete="off" [formGroup]="editarTurnoForm">
                     <mat-form-field class="completo" appearance="outline" style="margin-top: 30px;">
                         <mat-label>Contratista</mat-label>
-                        <input matInput value="{{'Bryan Luis'}}" formControlName="nombre">
+                        <input matInput value="{{'Bryan Luis'}}" disabled>
                     </mat-form-field>
                     <mat-form-field class="completo" appearance="outline">
                         <mat-label>Documento</mat-label>
-                        <input matInput value="{{'1015466494'}}" formControlName="documento">
+                        <input matInput value="{{'1015466494'}}" disabled>
                     </mat-form-field>
                     <mat-form-field class="completo" appearance="outline">
                         <mat-label>Labor</mat-label>
-                        <input matInput value="{{turnos[0].labor}}" formControlName="labor">
+                        <input matInput value="{{turnos[0].labor}}" disabled>
                     </mat-form-field>
                     <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
                         <mat-form-field class="medio" appearance="outline">
                             <mat-label>Hora Inicio</mat-label>
-                            <input matInput value="{{turnos[0].horaInicio}}" formControlName="horaInicio">
+                            <input matInput value="{{turnos[0].horaInicio}}" disabled>
                             <mat-hint>Hora de entrada</mat-hint>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
