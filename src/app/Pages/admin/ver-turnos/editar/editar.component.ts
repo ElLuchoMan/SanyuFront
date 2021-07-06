@@ -35,10 +35,6 @@ export class EditarComponent implements OnInit {
     { value: 'Oficina', nombre: 'Oficina' },
   ];
   jornadas: Jornada;
-
-
-
-
   getJornadas() {
     this.sanyuService.getJornada().forEach(data => {
       this.jornadas = data;
@@ -72,4 +68,5 @@ export class EditarComponent implements OnInit {
       console.log(turno.fechaModificacion);
     })
   }
+ 
 }

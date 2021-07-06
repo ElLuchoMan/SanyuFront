@@ -1,5 +1,5 @@
 <h1>¿Está seguro?</h1>
 <div fxLayoutAlign="center">
-    <button class="button" mat-button>Si</button>
-    <button class="button-red" mat-button style="margin-left: 5px;">No</button>
+    <button class="button" (click)="confirmar()" mat-button>Si</button>
+    <button class="button-red" (click)="cerrar()" mat-button style="margin-left: 5px;">No</button>
 </div>

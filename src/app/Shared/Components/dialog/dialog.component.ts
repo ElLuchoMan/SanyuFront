@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
 }
@@ -11,9 +11,15 @@ export interface DialogData {
 
 export class DialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(private dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {
+  }
+  confirmar() {
+    this.dialogRef.close(true);
+  }
+  cerrar() {
+    this.dialogRef.close();
   }
 
 }

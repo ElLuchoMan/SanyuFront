@@ -17,7 +17,14 @@ import { SinTurnoComponent } from './ver-turnos/sin-turno/sin-turno.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, VerTurnosComponent, GestionarTurnosComponent, CargaMasivaComponent, EditarComponent, SinTurnoComponent],
+  declarations: [
+    HomeComponent,
+    VerTurnosComponent,
+    GestionarTurnosComponent,
+    CargaMasivaComponent,
+    EditarComponent,
+    SinTurnoComponent,
+    ],
   imports: [
     CommonModule,
     AdminRoutingModule,

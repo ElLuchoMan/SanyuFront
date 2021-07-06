@@ -32,9 +32,6 @@ export class VerTurnosComponent implements OnInit {
 
   }
 
-  openDialog() {
-    this.dialog.open(DialogComponent);
-  }
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
       console.log(data);
@@ -72,4 +69,23 @@ export class VerTurnosComponent implements OnInit {
   }
 
 }
+  // borrarTurno() {
+  //   const dialog = this.dialog.open(DialogComponent, {
+  //     width: '250px',
+  //     data: this.turnos
+  //   });
+  //   dialog.afterClosed().subscribe((result) => {
+  //     if (result) {
+  //       this.sanyuService.actualizarTurno(this.id, this.turnos).subscribe(resp => {
+  //         this.router.navigate(['/heroes']);
+  //       })
+  //     }
+  //   })
+
+
+  // }
+
+  // }
+
+
 
