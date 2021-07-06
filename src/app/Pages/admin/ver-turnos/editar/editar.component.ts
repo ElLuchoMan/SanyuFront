@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Jornada } from 'src/app/Shared/models/jornada';
@@ -13,21 +13,21 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 })
 export class EditarComponent implements OnInit {
   contratista: Contratista[] = [];
-  turnos: Turno[]=[];
+  turnos: Turno[] = [];
   id: any = 0;
   documento: number;
   editarTurnoForm: FormGroup = this.fb.group({
-    nombre: ['',],
-    documento: ['',],
-    labor: ['',],
-    fecha: ['',],
-    jornada: ['',],
-    horaInicio: ['',],
-    horaFin: ['',],
+    horaFin: ['', Validators.required],
+    observacion: ['', Validators.required],
 
   })
   constructor(private fb: FormBuilder, private sanyuService: SanyuService, private aRoute: ActivatedRoute) {
 
+  }
+  ngOnInit(): void {
+    this.id = this.aRoute.snapshot.paramMap.get('id');
+    this.getTurno();
+    this.getJornadas();
   }
 
   labores: any[] = [
@@ -36,23 +36,8 @@ export class EditarComponent implements OnInit {
   ];
   jornadas: Jornada;
 
-  guardar() {
-    const turno: any = {
-      labor: this.editarTurnoForm.get('labor').value,
-      fecha: this.editarTurnoForm.get('fecha').value,
-      jornada: this.editarTurnoForm.get('jornada').value,
-      horaInicio: this.editarTurnoForm.get('horaInicio').value,
-      horaFin: this.editarTurnoForm.get('horaFin').value
-    };
 
-    console.log(turno);
-  }
 
-  ngOnInit(): void {
-    this.id = this.aRoute.snapshot.paramMap.get('id');
-    this.getTurno();
-    this.getJornadas();
-  }
 
   getJornadas() {
     this.sanyuService.getJornada().forEach(data => {
@@ -64,8 +49,24 @@ export class EditarComponent implements OnInit {
     this.sanyuService.getTurno(this.id).subscribe(data => {
       console.log(data);
       this.turnos.push(data);
-      // console.log(this.turnos[0].labor);
     })
   }
+  guardar() {
+    const turno: Turno = {
+      fechaFin: this.turnos[0].fechaInicio,
+      fechaInicio: this.turnos[0].fechaInicio,
+      fechaModificacion: new Date(),
+      finTurno: null,
+      horaFin: this.editarTurnoForm.get('horaFin').value,
+      horaInicio: this.turnos[0].horaInicio,
+      idTurno: this.turnos[0].idTurno,
+      inicioTurno: null,
+      jornada: this.turnos[0].jornada,
+      labor: this.turnos[0].labor,
+      modificador: null,
+      observacion: this.editarTurnoForm.get('observacion').value,
 
+    };
+    console.log(turno);
+  }
 }

@@ -59,15 +59,13 @@ th.mat-header-cell {
 
 .example-card {
     max-width: 600px;
-    height: 500px;
-    /* display: flex; */
+    height: 620px;
     align-items: center;
     justify-content: center;
-    /* min-height: 20vh; */
 }
 
 .center-content {
-    margin-top: 100px;
+    margin-top: 10px;
     text-align: -webkit-center;
     display: flex;
     align-items: center;
@@ -80,4 +78,9 @@ th.mat-header-cell {
 
 .medio {
     width: 255px;
+}
+.tittle {
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Signika', 'Belgrano', serif;
 }
