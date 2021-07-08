@@ -24,7 +24,7 @@
         </div>
     </div>
     <div *ngIf="turnos.length>0" fxLayoutAlign="center" style="margin-top: 40px;">
-        <h1><strong>Turnos para:</strong> {{contratista.nombre}}</h1>
+        <h1><strong>Turnos para:</strong> {{contratista?.nombre}}</h1>
     </div>
     <div fxLayoutAlign="center" *ngIf="turnos.length>0">
         <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
@@ -60,7 +60,7 @@
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button class="button-cancel" mat-mini-fab color="primary"
-                        aria-label="Example icon button with a delete icon" (click)="borrarTurno()">
+                        aria-label="Example icon button with a delete icon" (click)="borrarTurno(turno.idTurno)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>

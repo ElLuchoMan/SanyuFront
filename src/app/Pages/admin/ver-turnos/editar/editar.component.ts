@@ -49,6 +49,7 @@ export class EditarComponent implements OnInit {
   }
   guardar() {
     const turno: Turno = {
+      estadoTurno: this.turnos[0].estadoTurno,
       fechaFin: null,
       fechaInicio: this.turnos[0].fechaInicio,
       fechaModificacion: new Date(),
@@ -68,5 +69,5 @@ export class EditarComponent implements OnInit {
       console.log(turno.fechaModificacion);
     })
   }
- 
+
 }

@@ -21,6 +21,7 @@ export class VerTurnosComponent implements OnInit {
   displayedColumns = ['labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
   Date = new Date();
   datasource: any;
+  turnoEliminar: Turno | null;
   contratista: Contratista;
   turnos: Turno[] = [];
   // @ViewChild(MatSort, { static: false }) sort!: MatSort;
@@ -34,7 +35,7 @@ export class VerTurnosComponent implements OnInit {
 
   buscar() {
     this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       if (data != null) {
         this.turnos.push(data);
         this.datasource = data;
@@ -63,29 +64,49 @@ export class VerTurnosComponent implements OnInit {
   }
   mostrarContratista() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.contratista = data;
     })
   }
 
+  borrarTurno(idTurno) {
+    this.sanyuService.getTurno(idTurno).subscribe(turnoEliminar => {
+
+      const turnoAEliminar: any = {
+        estadoTurno: "Inactivo",
+        idTurno: turnoEliminar!.idTurno,
+        fechaFin: turnoEliminar?.fechaFin,
+        fechaInicio: turnoEliminar?.fechaInicio,
+        fechaModificacion: new Date(),
+        finTurno: turnoEliminar?.finTurno,
+        horaFin: turnoEliminar?.horaFin,
+        horaInicio: turnoEliminar?.horaInicio,
+        inicioTurno: turnoEliminar?.inicioTurno,
+        jornada: turnoEliminar?.jornada,
+        labor: turnoEliminar?.labor,
+        modificador: "Yo",
+        observacion: "Eliminado",
+      }
+      const dialog = this.dialog.open(DialogComponent, {
+        width: '250px',
+        data: this.turnos
+      });
+      dialog.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log(turnoAEliminar);
+          this.sanyuService.actualizarTurno(idTurno, turnoAEliminar).subscribe(resp => {
+          })
+        }
+      })
+    })
+
+
+
+  }
+
 }
-  // borrarTurno() {
-  //   const dialog = this.dialog.open(DialogComponent, {
-  //     width: '250px',
-  //     data: this.turnos
-  //   });
-  //   dialog.afterClosed().subscribe((result) => {
-  //     if (result) {
-  //       this.sanyuService.actualizarTurno(this.id, this.turnos).subscribe(resp => {
-  //         this.router.navigate(['/heroes']);
-  //       })
-  //     }
-  //   })
 
 
-  // }
-
-  // }
 
 
 

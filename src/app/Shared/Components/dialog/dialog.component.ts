@@ -1,8 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+import { Turno } from '../../models/turno';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -11,7 +9,7 @@ export interface DialogData {
 
 export class DialogComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(private dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Turno) { }
 
   ngOnInit(): void {
   }
