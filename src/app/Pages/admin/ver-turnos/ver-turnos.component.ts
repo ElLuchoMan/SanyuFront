@@ -59,7 +59,7 @@ export class VerTurnosComponent implements OnInit {
       //   }
       // }
     }, error => {
-      this.toastr.error('No existe un contratista con ese documento o no hay acceso a la base de datos', '¡ERROR!');
+      this.toastr.error('No se puede encontrar el contratista', '¡ERROR!');
     })
   }
   mostrarContratista() {
@@ -95,13 +95,14 @@ export class VerTurnosComponent implements OnInit {
         if (result) {
           console.log(turnoAEliminar);
           this.sanyuService.actualizarTurno(idTurno, turnoAEliminar).subscribe(resp => {
-          })
+            this.toastr.success('Turno eliminado con éxito', '¡HECHO!');
+          }, error => {
+            this.toastr.error(error, '¡ERROR!');
+          }
+          )
         }
       })
     })
-
-
-
   }
 
 }

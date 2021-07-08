@@ -4,6 +4,8 @@ import { HomeComponent } from 'src/app/Pages/home/home.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { ValidatorService } from 'src/app/Shared/Services/validator.service';
+import { Credenciales } from 'src/app/Shared/models/credenciales';
+import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,9 @@ export class LoginComponent implements OnInit {
     documento: new FormControl('', [Validators.required, Validators.pattern('\\d{7,10}')]),
     password: ['', Validators.required],
   })
+  info: any;
 
-  constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private validatorService: ValidatorService) { }
+  constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private validatorService: ValidatorService, private sanyuService: SanyuService) { }
 
   ngOnInit(): void {
     this.show = false;
@@ -27,12 +30,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.loginForm.get('documento').value == "1234567" && this.loginForm.get('password').value == "123") {
-      this.snackBar.open('¡BIENVENIDO!', '', { duration: 2000 })
-      this.router.navigate(['/home']);
-    } else {
-      this.snackBar.open('Credenciales incorrectas', 'X', { duration: 2000 })
+    const credenciales: Credenciales = {
+      documento: this.loginForm.get('documento').value,
+      password: this.loginForm.get('password').value,
     }
+    // console.log(credenciales);
+    this.sanyuService.login(credenciales).subscribe(data => {
+      // console.log(data);
+      localStorage.setItem('usuario', JSON.stringify(data));
+      this.mostrar();
+    })
+  }
+  mostrar() {
+    this.info = JSON.parse(localStorage.getItem('usuario'));
+    console.log(this.info.rol.nombreRol);
   }
 
 

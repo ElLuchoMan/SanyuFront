@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Contratista } from '../models/contratista';
+import { Credenciales } from '../models/credenciales';
 import { Jornada } from '../models/jornada';
 import { Turno } from '../models/turno';
 
@@ -29,8 +30,11 @@ export class SanyuService {
   getTurno(idTurno): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/${idTurno}`);
   }
-  actualizarTurno(idTurno, turno: Turno) {
+  actualizarTurno(idTurno, turno: Turno): Observable<Turno> {
     return this.httpClient.put<Turno>(this.baseUrl + `turnos/actualizar/${idTurno}`, turno);
+  }
+  login(credenciales: Credenciales) {
+    return this.httpClient.post(this.baseUrl + 'auth', credenciales);
   }
 
 }
