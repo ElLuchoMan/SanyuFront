@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
+import { Auth } from 'src/app/Shared/models/auth';
+import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
@@ -10,9 +13,8 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  turnoHoy: any[] = [{ labor: 'campo', jornada: 'mañana', horaInicio: '6:00', horaFin: '16:00' }];
-  // turnoHoy: any[] = [];
-
+  turnoHoy: Turno;
+  fechaHoy = new Date();
   cards = [
     {
       avatar: 'remove_red_eye',
@@ -39,15 +41,56 @@ export class HomeComponent implements OnInit {
       urlTo: '/404',
     },
   ];
-  constructor(public dialog: MatDialog, private sanyuService: SanyuService) { }
+  info: Auth;
+  documento: number;
+  constructor(public dialog: MatDialog, private sanyuService: SanyuService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.info = JSON.parse(localStorage.getItem('usuario'));
+    this.documento = this.info.documento;
+    this.mostrar();
   }
   mostrar() {
-    console.log()
+
+    this.sanyuService.buscarTurnoDelDia(this.documento).subscribe(data => {
+      console.log(data);
+      this.turnoHoy = data;
+    })
   }
-  openDialog() {
-    this.dialog.open(DialogComponent);
+  iniciarTurno(idTurno) {
+    this.sanyuService.getTurno(idTurno).subscribe(turnoIniciar => {
+
+      const iniciarTurno: any = {
+        estadoTurno: turnoIniciar?.estadoTurno,
+        idTurno: turnoIniciar!.idTurno,
+        fechaFin: turnoIniciar?.fechaInicio,
+        fechaInicio: turnoIniciar?.fechaInicio,
+        fechaModificacion: null,
+        finTurno: null,
+        horaFin: turnoIniciar?.horaFin,
+        horaInicio: turnoIniciar?.horaInicio,
+        inicioTurno: new Date().getHours() + ':' + new Date().getMinutes(),
+        jornada: turnoIniciar?.jornada,
+        labor: turnoIniciar?.labor,
+        modificador: null,
+        observacion: null,
+      }
+      const dialog = this.dialog.open(DialogComponent, {
+        width: '250px',
+        data: this.turnoHoy
+      });
+      dialog.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log(new Date().getHours() + ':' + new Date().getMinutes());
+          this.sanyuService.actualizarTurno(idTurno, iniciarTurno).subscribe(resp => {
+            this.toastr.success('Turno iniciado', '¡HECHO!');
+          }, error => {
+            this.toastr.error(error, '¡ERROR!');
+          }
+          )
+        }
+      })
+    })
   }
   logout() {
     this.sanyuService.logout();

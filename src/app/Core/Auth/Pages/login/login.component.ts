@@ -6,6 +6,7 @@ import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, Validators } f
 import { ValidatorService } from 'src/app/Shared/Services/validator.service';
 import { Credenciales } from 'src/app/Shared/models/credenciales';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   })
   info: any;
 
-  constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private validatorService: ValidatorService, private sanyuService: SanyuService) { }
+  constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private toastr: ToastrService, private sanyuService: SanyuService) { }
 
   ngOnInit(): void {
     this.show = false;
@@ -34,15 +35,19 @@ export class LoginComponent implements OnInit {
       documento: this.loginForm.get('documento').value,
       password: this.loginForm.get('password').value,
     }
-    // console.log(credenciales);
     this.sanyuService.login(credenciales).subscribe(data => {
-      // console.log(data);
       localStorage.setItem('usuario', JSON.stringify(data));
-      this.mostrar();
+      this.info = JSON.parse(localStorage.getItem('usuario'));
+      if (this.info.rol.nombreRol == 'Administrador') {
+        this.toastr.success('Administrador', 'Hola');
+        this.router.navigate(['/pages/users/admin']);
+      } else {
+        if (this.info.rol.nombreRol == 'Campo') {
+          this.toastr.success('Contratista', 'Hola');
+          this.router.navigate(['/pages/users/contratista']);
+        }
+      }
     })
-  }
-  mostrar() {
-    this.info = JSON.parse(localStorage.getItem('usuario'));
-    console.log(this.info.rol.nombreRol);
+
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { Auth } from 'src/app/Shared/models/auth';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
@@ -12,8 +13,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 export class VerTurnosComponent implements OnInit {
 
   displayedColumns = ['fecha', 'jornada', 'labor', 'inicio', 'final'];
-  Date = new Date();
-  info: any;
+  info: Auth;
   documento: number;
   turnos: Turno[] = [];
   datasource: any = this.turnos;

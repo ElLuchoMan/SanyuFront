@@ -5,25 +5,28 @@
 </mat-toolbar>
 <section>
     <div class="center-content">
-        <mat-card *ngIf="turnoHoy[0]!=null" class="card-turno">
+        <mat-card *ngIf="turnoHoy!=null" class="card-turno">
             <mat-card-header>
                 <mat-card-title fxLayoutAlign="center" class="tittle">Tu turno de hoy</mat-card-title>
             </mat-card-header>
             <hr>
             <mat-card-content fxLayoutAlign="center" class="content-turno">
-                <label> <strong>Labor: </strong>{{turnoHoy[0].labor}}</label>
-                <label> <strong>Jornada: </strong>{{turnoHoy[0].jornada}}</label>
-                <label> <strong>Horario: </strong>{{turnoHoy[0].horaInicio}} - {{turnoHoy[0].horaFin}}</label>
+                <label> <strong>Labor: </strong>{{turnoHoy.labor}}</label>
+                <label> <strong>Jornada: </strong>{{turnoHoy.jornada.nombreJornada}}</label>
+                <label> <strong>Horario: </strong>{{turnoHoy.horaInicio}} - {{turnoHoy.horaFin}}</label>
             </mat-card-content>
-            <mat-card-actions fxLayoutAlign="center">
-                <button class="card-button mb-3" mat-button (click)="openDialog()">
+            <mat-card-actions fxLayoutAlign="center" *ngIf="turnoHoy.inicioTurno==null">
+                <button class="card-button mb-3" mat-button (click)="iniciarTurno(turnoHoy.idTurno)">
                     <mat-icon>add_task</mat-icon> Iniciar
                 </button>
             </mat-card-actions>
         </mat-card>
-        <mat-card *ngIf="turnoHoy[0]==null" class="card-turno">
+        <mat-card *ngIf="turnoHoy==null" class="card-turno">
             <mat-card-title fxLayoutAlign="center" class="tittle">No tienes turnos registrados para hoy
             </mat-card-title>
+            <mat-card-content style="margin-top: 30px;">
+                <h1>Comunícate con tu supervisor</h1>
+            </mat-card-content>
         </mat-card>
     </div>
 </section>

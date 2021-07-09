@@ -35,6 +35,9 @@ export class SanyuService {
   actualizarTurno(idTurno, turno: Turno): Observable<Turno> {
     return this.httpClient.put<Turno>(this.baseUrl + `turnos/actualizar/${idTurno}`, turno);
   }
+  buscarTurnoDelDia(documento: number): Observable<Turno> {
+    return this.httpClient.get<Turno>(this.baseUrl + `turnos/turnoHoy/${documento}`);
+  }
   login(credenciales: Credenciales) {
     return this.httpClient.post(this.baseUrl + 'auth', credenciales);
   }
