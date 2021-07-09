@@ -1,7 +1,7 @@
 <mat-toolbar class=".bg-darken-gray expanded">
     <div class="logo" [routerLink]="['/home']"></div>
     <span class="spacer"></span>
-    <button class="card-button2" mat-button [routerLink]="[ '/home']">Cerrar sesión</button>
+    <button class="card-button2" mat-button [routerLink]="[ '/home']" (click)="logout()">Cerrar sesión</button>
 </mat-toolbar>
 <div fxLayout="column">
     <div fxLayoutAlign="center" class="head">

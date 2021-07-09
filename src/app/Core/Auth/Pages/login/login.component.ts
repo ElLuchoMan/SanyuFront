@@ -45,6 +45,4 @@ export class LoginComponent implements OnInit {
     this.info = JSON.parse(localStorage.getItem('usuario'));
     console.log(this.info.rol.nombreRol);
   }
-
-
 }

@@ -79,7 +79,9 @@ export class GestionarTurnosComponent implements OnInit {
   ngOnInit(): void {
     this.getJornadas();
   }
-
+  logout() {
+    this.sanyuService.logout();
+  }
 
   constructor(private fb: FormBuilder, private sanyuService: SanyuService, private toastr: ToastrService) { }
 

@@ -69,5 +69,7 @@ export class EditarComponent implements OnInit {
       console.log(turno.fechaModificacion);
     })
   }
-
+  logout() {
+    this.sanyuService.logout();
+  }
 }

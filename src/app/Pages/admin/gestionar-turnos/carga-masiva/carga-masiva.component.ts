@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
   selector: 'app-carga-masiva',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CargaMasivaComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
   buscarForm: FormGroup = this.fb.group({
     documento: ['',]
   })
@@ -19,5 +20,8 @@ export class CargaMasivaComponent implements OnInit {
   }
   guardar() {
 
+  }
+  logout() {
+    this.sanyuService.logout();
   }
 }

@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Auth } from '../models/auth';
 import { Contratista } from '../models/contratista';
 import { Credenciales } from '../models/credenciales';
 import { Jornada } from '../models/jornada';
@@ -36,5 +38,16 @@ export class SanyuService {
   login(credenciales: Credenciales) {
     return this.httpClient.post(this.baseUrl + 'auth', credenciales);
   }
-
+  verificaAutenticacion(): Observable<boolean> {
+    if (!localStorage.getItem('usuario')) {
+      return of(false);
+    } else {
+      if (localStorage.getItem('usuario')) {
+        return of(true);
+      }
+    }
+  }
+  logout() {
+    localStorage.clear();
+  }
 }

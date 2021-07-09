@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
   selector: 'app-home',
@@ -32,9 +33,11 @@ export class HomeComponent implements OnInit {
       urlTo: '/registro',
     },
   ];
-  constructor() { }
+  constructor(private sanyuService: SanyuService) { }
 
   ngOnInit(): void {
   }
-
+  logout() {
+    this.sanyuService.logout();
+  }
 }

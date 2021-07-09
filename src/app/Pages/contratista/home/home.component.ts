@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
+import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
       urlTo: '/404',
     },
   ];
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private sanyuService: SanyuService) { }
 
   ngOnInit(): void {
   }
@@ -47,5 +48,8 @@ export class HomeComponent implements OnInit {
   }
   openDialog() {
     this.dialog.open(DialogComponent);
+  }
+  logout() {
+    this.sanyuService.logout();
   }
 }

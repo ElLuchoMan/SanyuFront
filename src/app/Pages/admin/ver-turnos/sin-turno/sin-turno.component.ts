@@ -28,4 +28,7 @@ export class SinTurnoComponent implements OnInit {
       this.datasource = data;
     })
   }
+  logout() {
+    this.sanyuService.logout();
+  }
 }

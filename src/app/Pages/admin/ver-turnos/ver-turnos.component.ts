@@ -104,7 +104,9 @@ export class VerTurnosComponent implements OnInit {
       })
     })
   }
-
+  logout() {
+    this.sanyuService.logout();
+  }
 }
 
 
