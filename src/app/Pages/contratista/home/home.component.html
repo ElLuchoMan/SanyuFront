@@ -20,6 +20,9 @@
                     <mat-icon>add_task</mat-icon> Iniciar
                 </button>
             </mat-card-actions>
+            <mat-card-actions fxLayoutAlign="center" *ngIf="turnoHoy.inicioTurno!=null">
+                <label class="gris">Ya iniciaste tu turno</label>
+            </mat-card-actions>
         </mat-card>
         <mat-card *ngIf="turnoHoy==null" class="card-turno">
             <mat-card-title fxLayoutAlign="center" class="tittle">No tienes turnos registrados para hoy

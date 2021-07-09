@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
           console.log(new Date().getHours() + ':' + new Date().getMinutes());
           this.sanyuService.actualizarTurno(idTurno, iniciarTurno).subscribe(resp => {
             this.toastr.success('Turno iniciado', '¡HECHO!');
+            window.location.reload();
           }, error => {
             this.toastr.error(error, '¡ERROR!');
           }

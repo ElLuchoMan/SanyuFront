@@ -112,3 +112,6 @@ label {
     align-items: center;
     justify-content: center;
 }
+.gris{
+    color: var(--gris-oscuro);
+}
