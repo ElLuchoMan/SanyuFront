@@ -30,7 +30,7 @@
             <mat-card-content>
                 <form [formGroup]="turnosMasivosForm">
                     <mat-form-field appearance="outline" class="completo">
-                        <ngx-mat-file-input placeholder="Seleccione el archivo" formControlName="archivoMasivo">
+                        <ngx-mat-file-input placeholder="Seleccione el archivo" type="file" accept=".txt" formControlName="archivoMasivo">
                         </ngx-mat-file-input>
                         <mat-hint>Agrege el archivo de turnos</mat-hint>
                         <mat-error>Campo obligatorio</mat-error>
@@ -38,7 +38,7 @@
                 </form>
             </mat-card-content>
             <mat-card-actions>
-                <button class="card-button" style="margin-bottom: 10px;" mat-raised-button (click)="guardar()">
+                <button class="card-button" style="margin-bottom: 10px;" mat-raised-button (click)="guardar($event)">
                     <mat-icon>arrow_upward</mat-icon> Cargar Turnos
                 </button>
             </mat-card-actions>

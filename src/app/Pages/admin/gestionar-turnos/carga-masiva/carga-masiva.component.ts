@@ -8,7 +8,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
   styleUrls: ['./carga-masiva.component.css']
 })
 export class CargaMasivaComponent implements OnInit {
-
+  archivo: File;
   constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
   buscarForm: FormGroup = this.fb.group({
     documento: ['',]
@@ -19,7 +19,7 @@ export class CargaMasivaComponent implements OnInit {
   ngOnInit(): void {
   }
   guardar() {
-
+    
   }
   logout() {
     this.sanyuService.logout();

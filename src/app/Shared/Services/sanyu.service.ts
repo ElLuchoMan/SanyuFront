@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -37,6 +38,16 @@ export class SanyuService {
   }
   buscarTurnoDelDia(documento: number): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/turnoHoy/${documento}`);
+  }
+
+  cargarTurnos(archivo: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('turnos', archivo);
+    const post = new HttpRequest('POST', this.baseUrl + 'turnosMasivos', formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.httpClient.request(post);
   }
   login(credenciales: Credenciales) {
     return this.httpClient.post(this.baseUrl + 'auth', credenciales);

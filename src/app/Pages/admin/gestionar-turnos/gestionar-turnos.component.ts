@@ -30,14 +30,14 @@ export class GestionarTurnosComponent implements OnInit {
   ];
   jornadas: Jornada;
   inicio: any[] = [
-    { value: '06:00 am', nombre: '6:00 am' },
-    { value: '02:00 pm', nombre: '02:00 pm' },
-    { value: '10:00 pm', nombre: '10:00 pm' },
+    { value: '06:00AM', nombre: '6:00 am' },
+    { value: '02:00PM', nombre: '02:00 pm' },
+    { value: '10:00PM', nombre: '10:00 pm' },
   ]
   fin: any[] = [
-    { value: '02:00 pm', nombre: '02:00 pm' },
-    { value: '10:00 pm', nombre: '10:00 pm' },
-    { value: '06:00 am', nombre: '6:00 am' },
+    { value: '02:00PM', nombre: '02:00 pm' },
+    { value: '10:00PM', nombre: '10:00 pm' },
+    { value: '06:00AM', nombre: '6:00 am' },
   ]
 
   buscar() {

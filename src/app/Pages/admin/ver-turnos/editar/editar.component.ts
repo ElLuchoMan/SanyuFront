@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Auth } from 'src/app/Shared/models/auth';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Jornada } from 'src/app/Shared/models/jornada';
 import { Turno } from 'src/app/Shared/models/turno';
@@ -14,6 +15,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 export class EditarComponent implements OnInit {
   contratista: Contratista[] = [];
   turnos: Turno[] = [];
+  info: Auth;
   id: any = 0;
   documento: number;
   editarTurnoForm: FormGroup = this.fb.group({
@@ -25,6 +27,7 @@ export class EditarComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.info = JSON.parse(localStorage.getItem('usuario'));
     this.id = this.aRoute.snapshot.paramMap.get('id');
     this.getTurno();
     this.getJornadas();
@@ -57,10 +60,10 @@ export class EditarComponent implements OnInit {
       horaFin: this.editarTurnoForm.get('horaFin').value,
       horaInicio: this.turnos[0].horaInicio,
       idTurno: this.turnos[0].idTurno,
-      inicioTurno: null,
+      inicioTurno: this.turnos[0].inicioTurno,
       jornada: this.turnos[0].jornada,
       labor: this.turnos[0].labor,
-      modificador: null,
+      modificador: this.info.nombre,
       observacion: this.editarTurnoForm.get('observacion').value,
 
     };

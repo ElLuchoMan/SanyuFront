@@ -15,6 +15,7 @@ import { DialogComponent } from './Shared/Components/dialog/dialog.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './Core/Auth/Guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
   entryComponents: [
     DialogComponent
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

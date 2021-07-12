@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
 import { DialogComponent } from 'src/app/Shared/Components/dialog/dialog.component';
+import { Auth } from 'src/app/Shared/models/auth';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
@@ -21,6 +22,7 @@ export class VerTurnosComponent implements OnInit {
   displayedColumns = ['labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
   Date = new Date();
   datasource: any;
+  info: Auth;
   turnoEliminar: Turno | null;
   contratista: Contratista;
   turnos: Turno[] = [];
@@ -30,7 +32,7 @@ export class VerTurnosComponent implements OnInit {
   constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-
+    this.info = JSON.parse(localStorage.getItem('usuario'));
   }
 
   buscar() {
@@ -84,7 +86,7 @@ export class VerTurnosComponent implements OnInit {
         inicioTurno: turnoEliminar?.inicioTurno,
         jornada: turnoEliminar?.jornada,
         labor: turnoEliminar?.labor,
-        modificador: "Yo",
+        modificador: this.info.nombre,
         observacion: "Eliminado",
       }
       const dialog = this.dialog.open(DialogComponent, {
