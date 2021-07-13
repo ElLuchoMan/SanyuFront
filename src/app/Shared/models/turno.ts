@@ -1,17 +1,17 @@
 import { Jornada } from "./jornada";
 
 export interface Turno {
-    fechaFin: Date,
+    fechaFin?: Date,
     fechaInicio: Date,
-    fechaModificacion: Date,
+    fechaModificacion?: Date,
     estadoTurno: string,
-    finTurno: string,
+    finTurno?: string,
     horaFin: string,
     horaInicio: string,
-    idTurno: number,
-    inicioTurno: string,
+    idTurno?: number,
+    inicioTurno?: string,
     jornada: Jornada,
     labor: string,
-    modificador: string,
-    observacion: string,
+    modificador?: string,
+    observacion?: string,
 }

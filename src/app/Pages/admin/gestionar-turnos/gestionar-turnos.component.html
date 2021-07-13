@@ -37,18 +37,26 @@
                     <mat-form-field appearance="outline" class="completo">
                         <mat-label>Labor</mat-label>
                         <mat-select formControlName="labor">
-                            <mat-option [value]="usuario.nombre" *ngFor="let usuario of labores">{{usuario.nombre}}
+                            <mat-option [value]="labor.nombre" *ngFor="let labor of labores">{{labor.nombre}}
                             </mat-option>
                         </mat-select>
                         <mat-hint>Seleccione la labor a desempeñar</mat-hint>
                         <mat-error>Campo obligatorio</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="completo">
+                    <mat-form-field appearance="outline" class="medio">
                         <mat-label>Fecha</mat-label>
-                        <input matInput formControlName="fecha" [matDatepicker]="picker" autocomplete="off">
+                        <input matInput formControlName="fechaInicio" [matDatepicker]="picker" autocomplete="off">
                         <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
-                        <mat-hint>Ingrese la fecha de la cita</mat-hint>
+                        <mat-hint>Ingrese la fecha inicial del turno</mat-hint>
+                        <mat-error>La fecha es obligatoria</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput formControlName="fechaFin" [matDatepicker]="picker2" autocomplete="off">
+                        <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-hint>Ingrese la fecha final del turno</mat-hint>
                         <mat-error>La fecha es obligatoria</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="completo">

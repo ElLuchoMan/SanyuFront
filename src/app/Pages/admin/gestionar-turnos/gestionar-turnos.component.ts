@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Jornada } from 'src/app/Shared/models/jornada';
+import { Turno } from 'src/app/Shared/models/turno';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
 @Component({
@@ -18,10 +19,11 @@ export class GestionarTurnosComponent implements OnInit {
   documento: number = 0;
   agregarTurnoForm: FormGroup = this.fb.group({
     labor: ['',],
-    fecha: ['',],
     jornada: ['',],
     horaInicio: ['',],
     horaFin: ['',],
+    fechaInicio: ['',],
+    fechaFin: ['',],
 
   })
   labores: any[] = [
@@ -36,18 +38,17 @@ export class GestionarTurnosComponent implements OnInit {
   ]
   fin: any[] = [
     { value: '02:00PM', nombre: '02:00 pm' },
+    { value: '05:00PM', nombre: '05:00 pm' },
     { value: '10:00PM', nombre: '10:00 pm' },
     { value: '06:00AM', nombre: '6:00 am' },
   ]
 
   buscar() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
-      console.log(data);
       if (data != null) {
         if (data.estadoContratista == 'Activo') {
           this.contratista.push(data);
           this.documento = data.documento;
-          console.log(data.documento);
         } else {
           if (data.estadoContratista == 'Inactivo') {
             this.toastr.error('El contratista no se encuentra activo', '¡ERROR!');
@@ -61,15 +62,22 @@ export class GestionarTurnosComponent implements OnInit {
   }
 
   guardar() {
-    const turno: any = {
+    const turno: Turno = {
+      idTurno: null,
       labor: this.agregarTurnoForm.get('labor').value,
-      fecha: this.agregarTurnoForm.get('fecha').value,
-      jornada: this.agregarTurnoForm.get('jornada').value,
+      fechaInicio: this.agregarTurnoForm.get('fechaInicio').value,
+      fechaFin: this.agregarTurnoForm.get('fechaFin').value,
       horaInicio: this.agregarTurnoForm.get('horaInicio').value,
-      horaFin: this.agregarTurnoForm.get('horaFin').value
+      horaFin: this.agregarTurnoForm.get('horaFin').value,
+      jornada: this.agregarTurnoForm.get('jornada').value,
+      estadoTurno: 'Activo',
+      fechaModificacion: null,
+      modificador: null,
+      finTurno: null,
+      inicioTurno: null,
     };
-
     console.log(turno);
+
   }
   getJornadas() {
     this.sanyuService.getJornada().forEach(data => {
@@ -86,3 +94,4 @@ export class GestionarTurnosComponent implements OnInit {
   constructor(private fb: FormBuilder, private sanyuService: SanyuService, private toastr: ToastrService) { }
 
 }
+

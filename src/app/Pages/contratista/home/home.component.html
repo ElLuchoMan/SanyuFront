@@ -15,7 +15,7 @@
                 <label> <strong>Jornada: </strong>{{turnoHoy.jornada.nombreJornada}}</label>
                 <label> <strong>Horario: </strong>{{turnoHoy.horaInicio}} - {{turnoHoy.horaFin}}</label>
             </mat-card-content>
-            <mat-card-actions fxLayoutAlign="center" *ngIf="turnoHoy.inicioTurno==null">
+            <mat-card-actions fxLayoutAlign="center" *ngIf="turnoHoy.inicioTurno==null && turnoHoy.labor!='Oficina'">
                 <button class="card-button mb-3" mat-button (click)="iniciarTurno(turnoHoy.idTurno)">
                     <mat-icon>add_task</mat-icon> Iniciar
                 </button>

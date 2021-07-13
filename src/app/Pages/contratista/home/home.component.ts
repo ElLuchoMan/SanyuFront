@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         finTurno: null,
         horaFin: turnoIniciar?.horaFin,
         horaInicio: turnoIniciar?.horaInicio,
-        inicioTurno: new Date().getHours() + ':' + new Date().getMinutes(),
+        inicioTurno: new Date().getHours() + ':' + new Date().getMinutes()+':' + new Date().getSeconds(),
         jornada: turnoIniciar?.jornada,
         labor: turnoIniciar?.labor,
         modificador: null,
