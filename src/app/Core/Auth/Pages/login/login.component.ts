@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeComponent } from 'src/app/Pages/home/home.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormBuilder, FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
-import { ValidatorService } from 'src/app/Shared/Services/validator.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Credenciales } from 'src/app/Shared/models/credenciales';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 import { ToastrService } from 'ngx-toastr';
@@ -20,16 +18,13 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required],
   })
   info: any;
-
   constructor(private router: Router, private snackBar: MatSnackBar, private fb: FormBuilder, private toastr: ToastrService, private sanyuService: SanyuService) { }
-
   ngOnInit(): void {
     this.show = false;
   }
   verPassword() {
     this.show = !this.show;
   }
-
   login() {
     const credenciales: Credenciales = {
       documento: this.loginForm.get('documento').value,
@@ -38,6 +33,9 @@ export class LoginComponent implements OnInit {
     this.sanyuService.login(credenciales).subscribe(data => {
       localStorage.setItem('usuario', JSON.stringify(data));
       this.info = JSON.parse(localStorage.getItem('usuario'));
+      if (data == null) {
+        this.toastr.error('Verifique sus credenciales', '¡ERROR!');
+      }
       if (this.info.rol.nombreRol == 'Administrador') {
         this.toastr.success('Administrador', 'Hola');
         this.router.navigate(['/pages/users/admin']);
@@ -48,6 +46,5 @@ export class LoginComponent implements OnInit {
         }
       }
     })
-
   }
 }

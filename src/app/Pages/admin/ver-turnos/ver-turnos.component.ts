@@ -73,7 +73,6 @@ export class VerTurnosComponent implements OnInit {
 
   borrarTurno(idTurno) {
     this.sanyuService.getTurno(idTurno).subscribe(turnoEliminar => {
-
       const turnoAEliminar: any = {
         estadoTurno: "Inactivo",
         idTurno: turnoEliminar!.idTurno,
@@ -98,6 +97,7 @@ export class VerTurnosComponent implements OnInit {
           console.log(turnoAEliminar);
           this.sanyuService.actualizarTurno(idTurno, turnoAEliminar).subscribe(resp => {
             this.toastr.success('Turno eliminado con éxito', '¡HECHO!');
+            this.buscar();
           }, error => {
             this.toastr.error(error, '¡ERROR!');
           }
