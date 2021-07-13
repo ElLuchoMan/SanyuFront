@@ -16,12 +16,14 @@ export class GestionarTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
     documento: ['',]
   })
+  selectedLabor = 'Campo';
   documento: number = 0;
   agregarTurnoForm: FormGroup = this.fb.group({
     labor: ['',],
     jornada: ['',],
     horaInicio: ['',],
     horaFin: ['',],
+    fecha: ['',],
     fechaInicio: ['',],
     fechaFin: ['',],
 
@@ -38,7 +40,6 @@ export class GestionarTurnosComponent implements OnInit {
   ]
   fin: any[] = [
     { value: '02:00PM', nombre: '02:00 pm' },
-    { value: '05:00PM', nombre: '05:00 pm' },
     { value: '10:00PM', nombre: '10:00 pm' },
     { value: '06:00AM', nombre: '6:00 am' },
   ]
@@ -60,23 +61,50 @@ export class GestionarTurnosComponent implements OnInit {
     }
     )
   }
-
-  guardar() {
+  onChange(newValue) {
+    this.selectedLabor = newValue;
+  }
+  guardarOficina() {
     const turno: Turno = {
       idTurno: null,
       labor: this.agregarTurnoForm.get('labor').value,
       fechaInicio: this.agregarTurnoForm.get('fechaInicio').value,
       fechaFin: this.agregarTurnoForm.get('fechaFin').value,
-      horaInicio: this.agregarTurnoForm.get('horaInicio').value,
-      horaFin: this.agregarTurnoForm.get('horaFin').value,
-      jornada: this.agregarTurnoForm.get('jornada').value,
+      horaInicio: '08:00AM',
+      horaFin: '05:00PM',
+      jornada: { estadoJornada: null, idJornada: 4, nombreJornada: null },
       estadoTurno: 'Activo',
       fechaModificacion: null,
       modificador: null,
       finTurno: null,
       inicioTurno: null,
     };
-    console.log(turno);
+    this.sanyuService.crearTurno(turno).subscribe(data => {
+      this.toastr.success('El turno de Oficina se ha creado con éxito', '¡HECHO!');
+    }, error => {
+      this.toastr.error('No se ha podido crear el turno', '¡ERROR!');
+    })
+  }
+  guardarCampo() {
+    const turno: Turno = {
+      idTurno: null,
+      labor: this.agregarTurnoForm.get('labor').value,
+      fechaInicio: this.agregarTurnoForm.get('fecha').value,
+      fechaFin: this.agregarTurnoForm.get('fecha').value,
+      horaInicio: this.agregarTurnoForm.get('horaInicio').value,
+      horaFin: this.agregarTurnoForm.get('horaFin').value,
+      jornada: { estadoJornada: null, idJornada: this.agregarTurnoForm.get('jornada').value, nombreJornada: null },
+      estadoTurno: 'Activo',
+      fechaModificacion: null,
+      modificador: null,
+      finTurno: null,
+      inicioTurno: null,
+    };
+    this.sanyuService.crearTurno(turno).subscribe(data => {
+      this.toastr.success('El turno de Campo se ha creado con éxito', '¡HECHO!');
+    }, error => {
+      this.toastr.error('No se ha podido crear el turno', '¡ERROR!');
+    })
 
   }
   getJornadas() {

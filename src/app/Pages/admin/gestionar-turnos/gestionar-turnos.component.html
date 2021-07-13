@@ -36,40 +36,59 @@
                 <form autocomplete="off" [formGroup]="agregarTurnoForm">
                     <mat-form-field appearance="outline" class="completo">
                         <mat-label>Labor</mat-label>
-                        <mat-select formControlName="labor">
+                        <mat-select formControlName="labor" [ngModel]="selectedLabor"
+                            (ngModelChange)="onChange($event)">
                             <mat-option [value]="labor.nombre" *ngFor="let labor of labores">{{labor.nombre}}
                             </mat-option>
                         </mat-select>
                         <mat-hint>Seleccione la labor a desempeñar</mat-hint>
                         <mat-error>Campo obligatorio</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="medio">
-                        <mat-label>Fecha</mat-label>
-                        <input matInput formControlName="fechaInicio" [matDatepicker]="picker" autocomplete="off">
-                        <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                        <mat-hint>Ingrese la fecha inicial del turno</mat-hint>
-                        <mat-error>La fecha es obligatoria</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
-                        <mat-label>Fecha</mat-label>
-                        <input matInput formControlName="fechaFin" [matDatepicker]="picker2" autocomplete="off">
-                        <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2></mat-datepicker>
-                        <mat-hint>Ingrese la fecha final del turno</mat-hint>
-                        <mat-error>La fecha es obligatoria</mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline" class="completo">
-                        <mat-label>Jornada</mat-label>
-                        <mat-select formControlName="jornada">
-                            <mat-option [value]="jornada.idJornada" *ngFor="let jornada of jornadas">
-                                {{jornada.nombreJornada}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-hint>Seleccione la jornada de trabajo</mat-hint>
-                        <mat-error>Campo obligatorio</mat-error>
-                    </mat-form-field>
-                    <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
+                    <div *ngIf="selectedLabor!='Oficina'">
+                        <mat-form-field appearance="outline" class="completo">
+                            <mat-label>Fecha</mat-label>
+                            <input matInput formControlName="fecha" [matDatepicker]="picker" autocomplete="off">
+                            <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-hint>Ingrese la fecha del turno</mat-hint>
+                            <mat-error>La fecha es obligatoria</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="selectedLabor=='Oficina'">
+                        <mat-form-field appearance="outline" class="medio">
+                            <mat-label>Fecha Inicio</mat-label>
+                            <input matInput formControlName="fechaInicio" [matDatepicker]="picker2" autocomplete="off">
+                            <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker2">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                            <mat-hint>Ingrese la fecha inicial del turno</mat-hint>
+                            <mat-error>La fecha es obligatoria</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
+                            <mat-label>Fecha Fin</mat-label>
+                            <input matInput formControlName="fechaFin" [matDatepicker]="picker3" autocomplete="off">
+                            <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker3">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker3></mat-datepicker>
+                            <mat-hint>Ingrese la fecha final del turno</mat-hint>
+                            <mat-error>La fecha es obligatoria</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="selectedLabor!='Oficina'">
+                        <mat-form-field appearance="outline" class="completo">
+                            <mat-label>Jornada</mat-label>
+                            <mat-select formControlName="jornada">
+                                <mat-option [value]="jornada.idJornada" *ngFor="let jornada of jornadas">
+                                    {{jornada.nombreJornada}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Seleccione la jornada de trabajo</mat-hint>
+                            <mat-error>Campo obligatorio</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center"
+                        *ngIf="selectedLabor!='Oficina'">
                         <mat-form-field appearance="outline" class="medio">
                             <mat-label>Hora inicio</mat-label>
                             <mat-select formControlName="horaInicio">
@@ -94,7 +113,11 @@
                 </form>
             </mat-card-content>
             <mat-card-actions>
-                <button class="card-button" mat-raised-button (click)="guardar()">
+                <button *ngIf="selectedLabor=='Campo'" class="card-button" mat-raised-button (click)="guardarCampo()">
+                    <mat-icon>save</mat-icon> Guardar
+                </button>
+                <button *ngIf="selectedLabor=='Oficina'" class="card-button" mat-raised-button
+                    (click)="guardarOficina()">
                     <mat-icon>save</mat-icon> Guardar
                 </button>
             </mat-card-actions>
