@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div fxLayoutAlign="center" *ngIf="contratistas.length>0">
+    <div fxLayoutAlign="center" *ngIf="contratistas[0]!=null">
         <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
             <ng-container matColumnDef="nombreContratista">
                 <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Contratista </th>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 
@@ -15,17 +16,21 @@ export class SinTurnoComponent implements OnInit {
   datasource: any;
   contratistas: Contratista[] = [];
   displayedColumns = ['nombreContratista', 'identificacion', 'rol', 'telefono'];
-  constructor(private fb: FormBuilder, private sanyuService: SanyuService) { }
+  constructor(private fb: FormBuilder, private sanyuService: SanyuService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.sinTurno();
   }
   sinTurno() {
     this.sanyuService.contratistasSinTurno().subscribe(data => {
-      console.log(data);
-      this.contratistas.push(data);
-      console.log(data);
-      this.datasource = data;
+      if (data[0] == null) {
+        this.toastr.error('No se han encontrado contratistas', '¡ERROR!')
+      } else {
+        if (data[0] != null) {
+          this.contratistas.push(data);
+          this.datasource = data;
+        }
+      }
     })
   }
   logout() {
