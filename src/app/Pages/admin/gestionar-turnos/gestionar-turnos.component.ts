@@ -19,13 +19,13 @@ export class GestionarTurnosComponent implements OnInit {
   selectedLabor = 'Campo';
   documento: number = 0;
   agregarTurnoForm: FormGroup = this.fb.group({
-    labor: ['',],
-    jornada: ['',],
-    horaInicio: ['',],
-    horaFin: ['',],
-    fecha: ['',],
-    fechaInicio: ['',],
-    fechaFin: ['',],
+    labor: [''],
+    jornada: [''],
+    horaInicio: [''],
+    horaFin: [''],
+    fecha: [''],
+    fechaInicio: [''],
+    fechaFin: [''],
 
   })
   labores: any[] = [
