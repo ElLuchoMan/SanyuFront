@@ -17,10 +17,10 @@ export class GestionarTurnosComponent implements OnInit {
     documento: ['',]
   })
   selectedLabor = 'Campo';
-  hoy= new Date();
+  hoy = new Date();
   documento: number = 0;
   agregarTurnoForm: FormGroup = this.fb.group({
-    labor: [''],
+    labor: ['',],
     jornada: [''],
     horaInicio: [''],
     horaFin: [''],
@@ -48,12 +48,12 @@ export class GestionarTurnosComponent implements OnInit {
   buscar() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe((data) => {
       if (data != null) {
-        if (data.estadoContratista == 'Activo') {
+        if (data.estadoContratista == 'Activo' && data.rol.nombreRol != 'Administrador') {
           this.contratista.push(data);
           this.documento = data.documento;
         } else {
-          if (data.estadoContratista == 'Inactivo') {
-            this.toastr.error('El contratista no se encuentra activo', '¡ERROR!');
+          if (data.estadoContratista == 'Inactivo' || data.rol.nombreRol == 'Administrador') {
+            this.toastr.error('El contratista no se encuentra activo o es administrador', '¡ERROR!');
           }
         }
       }
