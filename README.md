@@ -1,4 +1,4 @@
-# SiBanco
+# SANYU (Cliente para realizar asignación de turnos dentro de SANYU)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
 
