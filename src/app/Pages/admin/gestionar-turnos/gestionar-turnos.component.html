@@ -116,12 +116,11 @@
                 </form>
             </mat-card-content>
             <mat-card-actions>
-                <button *ngIf="selectedLabor=='Campo'" disabled="agregarTurnoForm.invalid" class="card-button"
-                    mat-raised-button (click)="guardarCampo()">
+                <button *ngIf="selectedLabor=='Campo'" class="card-button" mat-raised-button (click)="guardarCampo()">
                     <mat-icon>save</mat-icon> Guardar
                 </button>
-                <button *ngIf="selectedLabor=='Oficina'" disabled="agregarTurnoForm.invalid" class="card-button"
-                    mat-raised-button (click)="guardarOficina()">
+                <button *ngIf="selectedLabor=='Oficina'" class="card-button" mat-raised-button
+                    (click)="guardarOficina()">
                     <mat-icon>save</mat-icon> Guardar
                 </button>
             </mat-card-actions>

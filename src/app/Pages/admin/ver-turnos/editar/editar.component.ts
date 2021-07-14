@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Auth } from 'src/app/Shared/models/auth';
 import { Contratista } from 'src/app/Shared/models/contratista';
@@ -24,7 +24,7 @@ export class EditarComponent implements OnInit {
     observacion: ['', Validators.required],
 
   })
-  constructor(private fb: FormBuilder, private sanyuService: SanyuService, private aRoute: ActivatedRoute, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private sanyuService: SanyuService, private aRoute: ActivatedRoute, private toastr: ToastrService, private route: Router) {
 
   }
   ngOnInit(): void {
@@ -71,6 +71,7 @@ export class EditarComponent implements OnInit {
     };
     this.sanyuService.actualizarTurno(this.id, turno).subscribe(data => {
       this.toastr.success('Se ha modificado el turno', '¡HECHO!')
+      this.route.navigate(['/pages/users/admin/turnos']);
     }, error => {
       this.toastr.success('No se ha podido modificar el turno', '¡ERROR!')
     })

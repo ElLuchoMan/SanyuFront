@@ -69,14 +69,14 @@ export class HomeComponent implements OnInit {
         finTurno: null,
         horaFin: turnoIniciar?.horaFin,
         horaInicio: turnoIniciar?.horaInicio,
-        inicioTurno: new Date().getHours() + ':' + new Date().getMinutes()+':' + new Date().getSeconds(),
+        inicioTurno: new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds(),
         jornada: turnoIniciar?.jornada,
         labor: turnoIniciar?.labor,
         modificador: null,
         observacion: null,
       }
       const dialog = this.dialog.open(DialogComponent, {
-        width: '250px',
+        width: '200px',
         data: this.turnoHoy
       });
       dialog.afterClosed().subscribe((result) => {

@@ -4,7 +4,7 @@
     <button class="card-button2" mat-button [routerLink]="[ '/home']" (click)="logout()">Cerrar sesión</button>
 </mat-toolbar>
 
-<section class="container" gdArea="content">
+<section class="container" gdArea="content" style="margin-top: 200px;">
     <header class="home-header" gdArea="header" fxLayoutAlign="center center"> </header>
     <div fxLayout="row wrap" class="content" fxLayoutAlign="space-evenly start">
         <mat-card fxFlex="25" fxFlex.lt-sm="100" *ngFor="let card of cards">

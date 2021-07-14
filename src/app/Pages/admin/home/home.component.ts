@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
     {
       avatar: 'remove_red_eye',
       title: 'Ver Turnos',
-      subtitle: 'Consulta los turnos y contratistas',
+      subtitle: 'Consulta los turnos de los contratistas y modifícalos',
       img: 'https://i.imgur.com/6sbZSNx.jpg',
       button: 'Ver Turnos',
       urlTo: '/pages/users/admin/turnos',
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     {
       avatar: 'pending_actions',
       title: 'Gestionar turnos ',
-      subtitle: 'Agrega o edita los turnos de los contratistas',
+      subtitle: 'Agrega turnos a los contratistas o haz una carga masiva',
       img: 'https://i.imgur.com/drgizze.jpg',
       button: 'Gestionar Turnos',
       urlTo: '/pages/users/admin//gestionar',
