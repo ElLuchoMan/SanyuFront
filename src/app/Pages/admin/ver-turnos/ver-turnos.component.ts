@@ -19,7 +19,7 @@ export class VerTurnosComponent implements OnInit {
   buscarForm: FormGroup = this.fb.group({
     documento: ['', Validators.required]
   })
-  displayedColumns = ['labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
+  displayedColumns = ['fechaInicio', 'fechaFin', 'horaInicio', 'horaFin', 'jornada', 'labor', 'acciones'];
   documento: number;
   Date = new Date();
   datasource: any;
