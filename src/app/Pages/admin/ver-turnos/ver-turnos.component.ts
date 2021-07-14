@@ -20,6 +20,7 @@ export class VerTurnosComponent implements OnInit {
     documento: ['', Validators.required]
   })
   displayedColumns = ['labor', 'fecha', 'inicio', 'final', 'jornada', 'acciones'];
+  documento: number;
   Date = new Date();
   datasource: any;
   info: Auth;
@@ -36,8 +37,8 @@ export class VerTurnosComponent implements OnInit {
   }
 
   buscar() {
-    this.sanyuService.buscarTurnosContratista(this.buscarForm.value.documento).subscribe((data) => {
-      // console.log(data);
+    this.documento = this.buscarForm.value.documento;
+    this.sanyuService.buscarTurnosContratista(this.documento).subscribe((data) => {
       if (data != null) {
         this.turnos.push(data);
         this.datasource = data;
@@ -49,7 +50,7 @@ export class VerTurnosComponent implements OnInit {
       //   if (data[0] != null) {
       //     this.turnos.push(data);
       //     this.datasource = data;
-      //     // console.log(data);
+
       //   } else {
       //     if (data.turnos == null) {
       //       this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
@@ -63,10 +64,10 @@ export class VerTurnosComponent implements OnInit {
     }, error => {
       this.toastr.error('No se puede encontrar el contratista', '¡ERROR!');
     })
+    this.sanyuService.documento = this.documento;
   }
   mostrarContratista() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
-      // console.log(data);
       this.contratista = data;
     })
   }
@@ -94,7 +95,6 @@ export class VerTurnosComponent implements OnInit {
       });
       dialog.afterClosed().subscribe((result) => {
         if (result) {
-          console.log(turnoAEliminar);
           this.sanyuService.actualizarTurno(idTurno, turnoAEliminar).subscribe(resp => {
             this.toastr.success('Turno eliminado con éxito', '¡HECHO!');
             this.buscar();

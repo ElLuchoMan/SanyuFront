@@ -79,7 +79,7 @@ export class GestionarTurnosComponent implements OnInit {
       finTurno: null,
       inicioTurno: null,
     };
-    this.sanyuService.crearTurno(turno).subscribe(data => {
+    this.sanyuService.crearTurno(turno, this.documento).subscribe(data => {
       this.toastr.success('El turno de Oficina se ha creado con éxito', '¡HECHO!');
     }, error => {
       this.toastr.error('No se ha podido crear el turno', '¡ERROR!');
@@ -100,7 +100,8 @@ export class GestionarTurnosComponent implements OnInit {
       finTurno: null,
       inicioTurno: null,
     };
-    this.sanyuService.crearTurno(turno).subscribe(data => {
+    this.sanyuService.crearTurno(turno, this.documento).subscribe(data => {
+      console.log(data);
       this.toastr.success('El turno de Campo se ha creado con éxito', '¡HECHO!');
     }, error => {
       this.toastr.error('No se ha podido crear el turno', '¡ERROR!');

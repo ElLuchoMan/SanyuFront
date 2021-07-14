@@ -14,8 +14,8 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
-  contratista: Contratista[] = [];
-  turnos: Turno[] = [];
+  contratista: Contratista;
+  turno: Turno;
   info: Auth;
   id: any = 0;
   documento: number;
@@ -30,8 +30,10 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
     this.info = JSON.parse(localStorage.getItem('usuario'));
     this.id = this.aRoute.snapshot.paramMap.get('id');
+    this.documento = this.sanyuService.documento;
     this.getTurno();
     this.getJornadas();
+    this.mostrarContratista();
   }
 
   labores: any[] = [
@@ -47,22 +49,22 @@ export class EditarComponent implements OnInit {
 
   getTurno() {
     this.sanyuService.getTurno(this.id).subscribe(data => {
-      this.turnos.push(data);
+      this.turno = data;
     })
   }
   guardar() {
     const turno: Turno = {
-      estadoTurno: this.turnos[0].estadoTurno,
+      estadoTurno: this.turno.estadoTurno,
       fechaFin: null,
-      fechaInicio: this.turnos[0].fechaInicio,
+      fechaInicio: this.turno.fechaInicio,
       fechaModificacion: new Date(),
       finTurno: null,
       horaFin: this.editarTurnoForm.get('horaFin').value,
-      horaInicio: this.turnos[0].horaInicio,
-      idTurno: this.turnos[0].idTurno,
-      inicioTurno: this.turnos[0].inicioTurno,
-      jornada: this.turnos[0].jornada,
-      labor: this.turnos[0].labor,
+      horaInicio: this.turno.horaInicio,
+      idTurno: this.turno.idTurno,
+      inicioTurno: this.turno.inicioTurno,
+      jornada: this.turno.jornada,
+      labor: this.turno.labor,
       modificador: this.info.nombre,
       observacion: this.editarTurnoForm.get('observacion').value,
 
@@ -75,5 +77,10 @@ export class EditarComponent implements OnInit {
   }
   logout() {
     this.sanyuService.logout();
+  }
+  mostrarContratista() {
+    this.sanyuService.buscarContratista(this.documento).subscribe(data => {
+      this.contratista = data;
+    })
   }
 }

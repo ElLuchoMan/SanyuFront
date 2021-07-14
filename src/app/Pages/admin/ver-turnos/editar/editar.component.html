@@ -4,69 +4,62 @@
     <button class="card-button2" mat-button [routerLink]="[ '/home']" (click)="logout()">Cerrar sesión</button>
 </mat-toolbar>
 <div fxLayout="column">
-    <div class="container">
-        <div fxLayoutAlign="center" class="head">
-            <div>
-                <button class="button" style="margin-top: 40px;" mat-button routerLink="/pages/users/admin/turnos">
-                    <mat-icon>keyboard_backspace</mat-icon> Volver
-                </button>
-            </div>
-        </div>
-        <hr style="margin-top: 20px;">
-    </div>
-    <!-- Formulario de adición de turnos -->
-    <div class="center-content">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <mat-card-title class="center">
-                    <h1 class="tittle">Editar</h1>
-                    <hr>
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <form autocomplete="off" [formGroup]="editarTurnoForm">
-                    <mat-form-field class="completo" appearance="outline" style="margin-top: 30px;">
-                        <mat-label>Contratista</mat-label>
-                        <input matInput value="{{'Bryan Luis'}}" disabled>
+
+</div>
+<!-- Formulario de adición de turnos -->
+<div class="center-content">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title class="center">
+                <h1 class="tittle">Editar</h1>
+                <hr>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form autocomplete="off" [formGroup]="editarTurnoForm">
+                <mat-form-field class="completo" appearance="outline" style="margin-top: 30px;">
+                    <mat-label>Contratista</mat-label>
+                    <input matInput value="{{contratista?.nombre}}" disabled>
+                </mat-form-field>
+                <mat-form-field class="completo" appearance="outline">
+                    <mat-label>Documento</mat-label>
+                    <input matInput value="{{contratista?.documento}}" disabled>
+                </mat-form-field>
+                <mat-form-field class="completo" appearance="outline">
+                    <mat-label>Labor</mat-label>
+                    <input matInput value="{{turno?.labor}}" disabled>
+                </mat-form-field>
+                <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
+                    <mat-form-field class="medio" appearance="outline">
+                        <mat-label>Hora Inicio</mat-label>
+                        <input matInput value="{{turno?.horaInicio}}" disabled>
+                        <mat-hint>Hora de entrada</mat-hint>
                     </mat-form-field>
-                    <mat-form-field class="completo" appearance="outline">
-                        <mat-label>Documento</mat-label>
-                        <input matInput value="{{'1015466494'}}" disabled>
+                    <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
+                        <mat-label>Hora Fin</mat-label>
+                        <input id="horaFin" matInput [ngxTimepicker]="hora2" [format]="12" formControlName="horaFin"
+                            [disableClick]="false" />
+                        <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
+                        <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
+                            2 </ngx-material-timepicker>
+                        <mat-hint>Hora inicial de salida: <strong>{{turno?.horaFin}}</strong></mat-hint>
+                        <ng-template #hint>
+                            <span class="time-hint">Ingrese la hora en formato 24 horas</span>
+                        </ng-template>
                     </mat-form-field>
-                    <mat-form-field class="completo" appearance="outline">
-                        <mat-label>Labor</mat-label>
-                        <input matInput value="{{turnos[0].labor}}" disabled>
+                    <mat-form-field appearance="outline" class="completo">
+                        <mat-label>Observación</mat-label>
+                        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="15"
+                            formControlName="observacion"></textarea>
                     </mat-form-field>
-                    <div class="form-group mt-1" fxLayout="row wrap" fxLayoutAlign="center">
-                        <mat-form-field class="medio" appearance="outline">
-                            <mat-label>Hora Inicio</mat-label>
-                            <input matInput value="{{turnos[0].horaInicio}}" disabled>
-                            <mat-hint>Hora de entrada</mat-hint>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
-                            <mat-label>Hora Fin</mat-label>
-                            <input id="horaFin" matInput [ngxTimepicker]="hora2" [format]="12" formControlName="horaFin"
-                                [disableClick]="false" />
-                            <mat-icon class="button" matSuffix (click)="hora2.open()">schedule</mat-icon>
-                            <ngx-material-timepicker [hoursOnly]="true" #hora2 [editableHintTmpl]="hint" #with5Gap>
-                                2 </ngx-material-timepicker>
-                            <mat-hint>Hora inicial de salida: <strong>{{turnos[0].horaFin}}</strong></mat-hint>
-                            <ng-template #hint>
-                                <span class="time-hint">Ingrese la hora en formato 24 horas</span>
-                            </ng-template>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="completo">
-                            <mat-label>Observación</mat-label>
-                            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1"
-                                cdkAutosizeMaxRows="15" formControlName="observacion"></textarea>
-                        </mat-form-field>
-                    </div>
-                </form>
-            </mat-card-content>
-            <!-- <mat-card-actions>  -->
-            <button class="card-button" style="margin-top: -10px;" mat-raised-button (click)="guardar()">
-                <mat-icon>save</mat-icon> Guardar
-            </button>
-            <!-- </mat-card-actions> -->
-        </mat-card>
-    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <button class="card-button" style="margin-top: -10px;" mat-raised-button routerLink="/pages/users/admin/turnos">
+            <mat-icon>keyboard_backspace</mat-icon> Volver
+        </button>
+        <button class="card-button" style="margin-top: -10px;" mat-raised-button (click)="guardar()">
+            <mat-icon>save</mat-icon> Guardar
+        </button>
+    </mat-card>
+</div>

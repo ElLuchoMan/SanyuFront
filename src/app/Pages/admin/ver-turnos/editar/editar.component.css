@@ -58,6 +58,7 @@ th.mat-header-cell {
 }
 
 .example-card {
+    margin-top: 150px;
     max-width: 600px;
     height: 620px;
     align-items: center;
