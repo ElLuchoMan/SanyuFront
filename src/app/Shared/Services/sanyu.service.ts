@@ -14,7 +14,7 @@ import { Turno } from '../models/turno';
   providedIn: 'root'
 })
 export class SanyuService {
-  baseUrl = environment.urlContratistas;
+  baseUrl = environment.urlSANYU;
   documento: number;
   constructor(private httpClient: HttpClient) { }
   buscarTurnosContratista(documento: number): Observable<Turno> {

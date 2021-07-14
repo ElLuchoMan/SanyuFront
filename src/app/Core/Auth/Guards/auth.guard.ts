@@ -18,11 +18,13 @@ export class AuthGuard implements CanLoad, CanActivate {
     return this.authService.verificaAutenticacion()
       .pipe(
         tap(estaAutenticado => {
-          if (!estaAutenticado) {
+          if (!estaAutenticado && this.rol == null) {
             this.router.navigate(['./auth/login']);
           }
         })
-      )
+      );
+
+
   }
   canLoad(
     route: Route,
@@ -30,7 +32,7 @@ export class AuthGuard implements CanLoad, CanActivate {
     return this.authService.verificaAutenticacion()
       .pipe(
         tap(estaAutenticado => {
-          if (!estaAutenticado) {
+          if (!estaAutenticado && this.rol == null) {
             this.router.navigate(['./auth/login']);
           }
         })

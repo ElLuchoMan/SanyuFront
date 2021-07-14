@@ -119,7 +119,11 @@ export class GestionarTurnosComponent implements OnInit {
   logout() {
     this.sanyuService.logout();
   }
-
+  finesSemana = (d: Date): boolean => {
+    const day = d.getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+  }
   constructor(private fb: FormBuilder, private sanyuService: SanyuService, private toastr: ToastrService) { }
 
 }

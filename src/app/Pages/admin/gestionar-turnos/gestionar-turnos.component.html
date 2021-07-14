@@ -47,7 +47,7 @@
                     <div *ngIf="selectedLabor!='Oficina'">
                         <mat-form-field appearance="outline" class="completo">
                             <mat-label>Fecha</mat-label>
-                            <input matInput formControlName="fecha" [matDatepicker]="picker" autocomplete="off">
+                            <input matInput formControlName="fecha" [matDatepickerFilter] = "finesSemana" [matDatepicker]="picker" autocomplete="off">
                             <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker">
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
@@ -58,7 +58,7 @@
                     <div *ngIf="selectedLabor=='Oficina'">
                         <mat-form-field appearance="outline" class="medio">
                             <mat-label>Fecha Inicio</mat-label>
-                            <input matInput formControlName="fechaInicio" [matDatepicker]="picker2" autocomplete="off">
+                            <input matInput formControlName="fechaInicio" [matDatepickerFilter] = "finesSemana" [matDatepicker]="picker2" autocomplete="off">
                             <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker2">
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker2></mat-datepicker>
@@ -67,7 +67,7 @@
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="medio" style="margin-left: 40px;">
                             <mat-label>Fecha Fin</mat-label>
-                            <input matInput formControlName="fechaFin" [matDatepicker]="picker3" autocomplete="off">
+                            <input matInput formControlName="fechaFin" [matDatepickerFilter] = "finesSemana" [matDatepicker]="picker3" autocomplete="off">
                             <mat-datepicker-toggle type="datetime-local" matSuffix [for]="picker3">
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker3></mat-datepicker>

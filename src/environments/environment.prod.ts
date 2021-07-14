@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlContratistas: "http://localhost:8080/api/",
+  urlSANYU: "http://localhost:8080/api/",
 };
