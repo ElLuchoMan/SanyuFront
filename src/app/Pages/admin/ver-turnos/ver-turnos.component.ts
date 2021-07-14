@@ -35,43 +35,28 @@ export class VerTurnosComponent implements OnInit {
   ngOnInit(): void {
     this.info = JSON.parse(localStorage.getItem('usuario'));
   }
-
+  mostrarContratista() {
+    this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
+      if (data.rol.nombreRol != 'Administrador') {
+        this.contratista = data;
+      }
+    })
+  }
   buscar() {
     this.documento = this.buscarForm.value.documento;
     this.sanyuService.buscarTurnosContratista(this.documento).subscribe((data) => {
-      if (data != null) {
+      if (data[0] != null) {
         this.turnos.push(data);
         this.datasource = data;
         this.mostrarContratista();
+      } else {
+        if (data[0] == null) { }
+        this.toastr.error('No se encuentran turnos para el contratista', '¡ERROR!');
       }
-      // if (data.estadoContratista == 'Inactivo') {
-      //   this.toastr.error('Contratista inactivo', '¡ERROR!');
-      // } else {
-      //   if (data[0] != null) {
-      //     this.turnos.push(data);
-      //     this.datasource = data;
-
-      //   } else {
-      //     if (data.turnos == null) {
-      //       this.toastr.error('El contratista no cuenta con turnos', '¡ERROR!');
-      //     } else {
-      //      if (data.turnos != null){
-      //         this.turnos.push(data.turnos);
-      //       }
-      //     }
-      //   }
-      // }
     }, error => {
-      this.toastr.error('No se puede encontrar el contratista', '¡ERROR!');
     })
     this.sanyuService.documento = this.documento;
   }
-  mostrarContratista() {
-    this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
-      this.contratista = data;
-    })
-  }
-
   borrarTurno(idTurno) {
     this.sanyuService.getTurno(idTurno).subscribe(turnoEliminar => {
       const turnoAEliminar: any = {
@@ -90,7 +75,7 @@ export class VerTurnosComponent implements OnInit {
         observacion: "Eliminado",
       }
       const dialog = this.dialog.open(DialogComponent, {
-        width: '250px',
+        width: '200px',
         data: this.turnos
       });
       dialog.afterClosed().subscribe((result) => {
@@ -99,7 +84,7 @@ export class VerTurnosComponent implements OnInit {
             this.toastr.success('Turno eliminado con éxito', '¡HECHO!');
             this.buscar();
           }, error => {
-            this.toastr.error(error, '¡ERROR!');
+            this.toastr.error(error + '', '¡ERROR!');
           }
           )
         }

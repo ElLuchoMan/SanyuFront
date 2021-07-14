@@ -23,7 +23,7 @@
             </button>
         </div>
     </div>
-    <div *ngIf="turnos.length>0" fxLayoutAlign="center" style="margin-top: 40px;">
+    <div *ngIf="turnos.length>=1" fxLayoutAlign="center" style="margin-top: 40px;">
         <h1><strong>Turnos para:</strong> {{contratista?.nombre}}</h1>
     </div>
     <div fxLayoutAlign="center" *ngIf="turnos.length>0">
