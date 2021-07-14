@@ -12,7 +12,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
 })
 export class VerTurnosComponent implements OnInit {
 
-  displayedColumns = ['fecha', 'jornada', 'labor', 'inicio', 'final'];
+  displayedColumns = ['fechaInicio', 'fechaFin', 'horaInicio', 'horaFin', 'jornada', 'labor'];
   info: Auth;
   documento: number;
   turnos: Turno[] = [];
