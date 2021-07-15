@@ -1,6 +1,6 @@
 import { Rol } from "./rol";
 import { Turno } from "./turno";
-
+//Interface que permite concer los tipos de dato que contiene un Contratista
 export interface Contratista {
     documento: number,
     estadoContratista: string,

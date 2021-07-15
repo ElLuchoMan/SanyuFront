@@ -17,6 +17,7 @@ import { SinTurnoComponent } from './ver-turnos/sin-turno/sin-turno.component';
 
 
 @NgModule({
+  //Componentes necesarios para el módulo de Administrador
   declarations: [
     HomeComponent,
     VerTurnosComponent,
@@ -24,7 +25,8 @@ import { SinTurnoComponent } from './ver-turnos/sin-turno/sin-turno.component';
     CargaMasivaComponent,
     EditarComponent,
     SinTurnoComponent,
-    ],
+  ],
+  //Módulos necesarios para el módulo de Administrador
   imports: [
     CommonModule,
     AdminRoutingModule,

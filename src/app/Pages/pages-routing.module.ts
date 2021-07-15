@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'users', children: [
+      //Se implementa lazy load para acceder a los módulos de Administrador, pasando por el Guard si el rol es de Administrador
       { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [AuthGuard], data: { rol: ['Administrador'] } },
+      //Se implementa lazy load para acceder a los módulos de Campo, pasando por el Guard si el rol es de Campo
       { path: 'contratista', loadChildren: () => import('./contratista/contratista.module').then(m => m.ContratistaModule), canActivate: [AuthGuard], data: { rol: ['Campo'] } },
     ]
   },

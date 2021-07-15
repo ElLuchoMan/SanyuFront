@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlSANYU: "http://localhost:8080/api/",
+  urlSANYU: "http://localhost:8080/api/", //Enpoint a SANYU
 };
 
 /*

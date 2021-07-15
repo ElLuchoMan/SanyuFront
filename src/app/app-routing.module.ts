@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './Core/Auth/Pages/login/login.component';
 import { RegistroComponent } from './Core/Auth/Pages/registro/registro.component';
 import { HomeComponent } from './Pages/home/home.component';
+import { InfoCargaMasivaComponent } from './Shared/Components/info-carga-masiva/info-carga-masiva.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [

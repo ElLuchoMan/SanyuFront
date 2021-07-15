@@ -21,10 +21,13 @@ export class SinTurnoComponent implements OnInit {
   ngOnInit(): void {
     this.sinTurno();
   }
+  //Método que permite traer la información de los contratistas sin turno
   sinTurno() {
     this.sanyuService.contratistasSinTurno().subscribe(data => {
+      //Si la respuesta es nula, se muestra un mensaje
       if (data[0] == null) {
         this.toastr.error('No se han encontrado contratistas', '¡ERROR!')
+        //Si la respuesta no es nula, se cargan los contratistas en el arreglo
       } else {
         if (data[0] != null) {
           this.contratistas.push(data);

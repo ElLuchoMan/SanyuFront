@@ -33,15 +33,17 @@ export class LoginComponent implements OnInit {
     this.sanyuService.login(credenciales).subscribe(data => {
       localStorage.setItem('usuario', JSON.stringify(data));
       this.info = JSON.parse(localStorage.getItem('usuario'));
+      //Se valida la respuesta de la API, si es inválida, se muestra un mensaje
       if (data == null) {
         this.toastr.error('Verifique sus credenciales', '¡ERROR!');
       }
+      //Si la respuesta de la API es válida, se redirige a la página principal dependiendo su rol y se muestra un mensaje de bienvenida
       if (this.info.rol.nombreRol == 'Administrador') {
-        this.toastr.success('Administrador', 'Hola');
+        this.toastr.success(`Administrador: ${this.info.nombre}`, 'Hola');
         this.router.navigate(['/pages/users/admin']);
       } else {
         if (this.info.rol.nombreRol == 'Campo') {
-          this.toastr.success('Contratista', 'Hola');
+          this.toastr.success(`Contratista: ${this.info.nombre}`, 'Hola');
           this.router.navigate(['/pages/users/contratista']);
         }
       }

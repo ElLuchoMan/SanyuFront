@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './Core/header/header.component';
 import { MaterialModule } from './Shared/Modules/Material/material.module';
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Core/Auth/Pages/login/login.component';
@@ -16,16 +15,17 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './Core/Auth/Guards/auth.guard';
+import { InfoCargaMasivaComponent } from './Shared/Components/info-carga-masiva/info-carga-masiva.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     HomeComponent,
     LoginComponent,
     RegistroComponent,
     DialogComponent,
     NotFoundComponent,
+    InfoCargaMasivaComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,8 @@ import { AuthGuard } from './Core/Auth/Guards/auth.guard';
     ToastrModule.forRoot(),
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    InfoCargaMasivaComponent,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

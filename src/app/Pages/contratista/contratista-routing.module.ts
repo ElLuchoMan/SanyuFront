@@ -5,6 +5,7 @@ import { VerTurnosComponent } from './ver-turnos/ver-turnos.component';
 
 const routes: Routes = [
   {
+    //Se definen las rutas a las que puede acceder el Contratista
     path: '', children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },

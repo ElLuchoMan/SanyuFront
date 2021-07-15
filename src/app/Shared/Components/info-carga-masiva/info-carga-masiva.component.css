@@ -1,0 +1,21 @@
+.texto {
+    font-weight: bold;
+    font-family: 'Signika', 'Belgrano', serif;
+}
+
+li {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+strong {
+    font-size: 1.2em;
+    margin-top: 5px;
+    font-weight: bold!important;
+}
+
+.button {
+    background-color: var(--azul-claro);
+    color: white;
+    border: 1px solid var(--azul-claro);
+}

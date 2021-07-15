@@ -1,5 +1,5 @@
 import { Jornada } from "./jornada";
-
+//Interface que permite concer los tipos de dato que contiene un Turno
 export interface Turno {
     fechaFin?: Date,
     fechaInicio: Date,

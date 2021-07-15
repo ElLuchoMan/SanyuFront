@@ -10,6 +10,7 @@ import { VerTurnosComponent } from './ver-turnos/ver-turnos.component';
 
 const routes: Routes = [
   {
+    //Rutas del módulo de administrador
     path: '', children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { rol: 'Administrador' } },

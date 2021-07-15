@@ -1,0 +1,45 @@
+<!-- Ventana para informar al usuario la forma en que debe estructurarse el archivo plano -->
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <h1 class="texto"><strong>¿Cómo debe estar estructurado mi archivo de turnos?</strong></h1>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <h2 class="texto">Ten en cuenta la siguiente información para realizar la creación o actualización de turnos de
+        manera correcta:
+    </h2>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <ol class="texto" style="margin-top: 0px;">
+        <li>El archivo <strong>DEBE</strong> estar en formato <strong>.txt</strong></li>
+        <li>Todos los campos deberán ir separados por comas.</li>
+        <li>Evita dejar espacio entre las comas.</li>
+        <li>Cada turno deberá ir en una línea distinta.</li>
+        <li>Evita dejar espacios vacíos antes o después de cada línea.</li>
+        <li>Evita dejar alguna línea vacía antes del primer registro.</li>
+        <li>Evita dejar alguna línea vacía después del último registro.</li>
+        <li>Si deseas crear un turno, el campo correspondiente al ID del turno,
+            <br> deberá ir con 'null' (Sin comillas).
+        </li>
+        <li>Si deseas editar un turno existente, es necesario que indiques
+            <br>el ID del turno que deseas modificar.
+        </li>
+        <li>Es obligatorio indicar el documento del contratista a quien vas a asignar el turno.</li>
+        <li>Si el turno es de Campo, deberás ingresar la misma fecha tanto inicial como final.</li>
+        <li>Si el turno es de Oficina, deberás ingresar un rango de fechas (Fecha inicial y Fecha final distintas).
+        </li>
+    </ol>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <h2 class="texto">La estructura correcta para la creación del archivo es:</h2>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <H4 class="texto">ID TURNO,DOCUMENTO CONTRATISTA,FECHA INICIAL, FECHA FINAL,JORNADA,HORA INICIO,HORA FIN,LABOR</H4>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <h2 class="texto">Ejemplo:</h2>
+</div>
+<div fxLayoutAlign="center" style="margin-top: 15px;">
+    <img src="https://i.imgur.com/rOBtN8l.png" alt="Imagen Turnos">
+</div>
+<div fxLayoutAlign="center" style="margin-top: 20px;">
+    <button class="button" (click)="confirmar()" mat-button>Aceptar</button>
+</div>

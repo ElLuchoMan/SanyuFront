@@ -27,8 +27,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
   declarations: [],
   imports: [
     CommonModule,
-    MatToolbarModule,
   ],
+  //Se exportan todos los componentes de Angular Material que se van a utilizar en los distitntos componentes del proyecto
   exports: [
     MatToolbarModule,
     MatIconModule,

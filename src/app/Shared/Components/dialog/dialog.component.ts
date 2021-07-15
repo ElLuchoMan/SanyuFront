@@ -8,16 +8,14 @@ import { Turno } from '../../models/turno';
 })
 
 export class DialogComponent implements OnInit {
-
   constructor(private dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Turno) { }
-
   ngOnInit(): void {
   }
+  //Responde al componente que lo utiliza si se aceptó o no la confirmación
   confirmar() {
     this.dialogRef.close(true);
   }
   cerrar() {
     this.dialogRef.close();
   }
-
 }

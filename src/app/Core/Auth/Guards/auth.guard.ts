@@ -12,6 +12,7 @@ export class AuthGuard implements CanLoad, CanActivate {
   rol = this.info.rol.nombreRol;
   constructor(private authService: SanyuService,
     private router: Router) { }
+  //Verifica si está autenticado para poder hacer el ingreso a los distintos módulos, sino, redirige al login
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -26,6 +27,7 @@ export class AuthGuard implements CanLoad, CanActivate {
 
 
   }
+  //Verifica si está autenticado para poder hacer el ingreso a los distintos módulos, sino, redirige al login
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | boolean {

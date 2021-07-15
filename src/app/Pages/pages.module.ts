@@ -17,6 +17,7 @@ registerLocaleData(LocaleEs);//Se registra el idioma español
   ],
   providers: [
     {
+      //Se define idioma general en español de Colombia
       provide: LOCALE_ID, useValue: 'es-CO'
     }
   ],

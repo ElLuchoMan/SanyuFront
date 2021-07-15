@@ -10,7 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent, VerTurnosComponent],
+  //Listado de componentes del módulo de Contratista
+  declarations: [
+    HomeComponent,
+    VerTurnosComponent],
+  //Importaciones necesarias
   imports: [
     CommonModule,
     ContratistaRoutingModule,
