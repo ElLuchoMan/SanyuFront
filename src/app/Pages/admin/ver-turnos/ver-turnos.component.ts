@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -13,7 +13,7 @@ import { SanyuService } from 'src/app/Shared/Services/sanyu.service';
   templateUrl: './ver-turnos.component.html',
   styleUrls: ['./ver-turnos.component.css']
 })
-export class VerTurnosComponent implements OnInit {
+export class VerTurnosComponent implements OnInit, AfterViewInit {
   //Formulario de búqueda
   buscarForm: FormGroup = this.fb.group({
     documento: ['', Validators.required]
@@ -27,8 +27,11 @@ export class VerTurnosComponent implements OnInit {
   turnoEliminar: Turno | null;
   contratista: Contratista;
   turnos: Turno[] = [];
-  // @ViewChild(MatSort, { static: false }) sort!: MatSort;
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  ngAfterViewInit() {
+    this.datasource.paginator = this.paginator;
+  }
+
 
   constructor(public dialog: MatDialog, private sanyuService: SanyuService, private fb: FormBuilder, private toastr: ToastrService) { }
   ngOnInit(): void {
