@@ -13,7 +13,8 @@
             <!-- Información del turno del día -->
             <mat-card-content fxLayoutAlign="center" class="content-turno">
                 <label> <strong>Labor: </strong>{{turnoHoy.labor}}</label>
-                <label> <strong>Jornada: </strong>{{turnoHoy.jornada.nombreJornada}}</label>
+                <label *ngIf="turnoHoy.labor!='Oficina'"> <strong>Jornada:
+                    </strong>{{turnoHoy.jornada.nombreJornada}}</label>
                 <label> <strong>Horario: </strong>{{turnoHoy.horaInicio}} - {{turnoHoy.horaFin}}</label>
             </mat-card-content>
             <!-- Si no se ha iniciado turno,aparece el botón para iniciar -->

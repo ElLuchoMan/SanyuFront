@@ -56,7 +56,12 @@ table {
 th.mat-header-cell {
     text-align: center !important;
 }
-h1{
+
+td.mat-cell {
+    text-align: center !important;
+}
+
+h1 {
     font-size: 50px;
     margin-top: 20px;
     font-family: sans-serif

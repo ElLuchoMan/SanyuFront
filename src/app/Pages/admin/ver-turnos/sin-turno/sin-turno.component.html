@@ -25,21 +25,21 @@
     </div>
 
     <div fxLayoutAlign="center" *ngIf="contratistas[0]!=null">
-        <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
             <ng-container matColumnDef="nombreContratista">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header fxHide.lt-sm> Contratista </th>
+                <th scope="col" mat-header-cell *matHeaderCellDef fxHide.lt-sm> Contratista </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.nombre}} </td>
             </ng-container>
             <ng-container matColumnDef="identificacion">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Identificación </th>
+                <th scope="col" mat-header-cell *matHeaderCellDef> Identificación </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.documento}} </td>
             </ng-container>
             <ng-container matColumnDef="rol">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Rol </th>
+                <th scope="col" mat-header-cell *matHeaderCellDef> Rol </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.rol.nombreRol}} </td>
             </ng-container>
             <ng-container matColumnDef="telefono">
-                <th scope="col" mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
+                <th scope="col" mat-header-cell *matHeaderCellDef> Teléfono </th>
                 <td mat-cell *matCellDef="let contratista" fxHide.lt-sm> {{contratista.telefono}} </td>
             </ng-container>
 
@@ -49,4 +49,9 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
+    <!-- <div fxLayoutAlign="center" *ngIf="turnos.length>0">
+        <mat-paginator *ngIf="turnos.length>0" [pageSize]="5" fxLayoutAlign="center"
+            [pageSizeOptions]="[5, 10, 20, 30, 50, 100]" class="mat-elevation-z8">
+        </mat-paginator>
+    </div> -->
 </div>

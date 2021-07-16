@@ -30,6 +30,7 @@ span {
     background-color: white;
     /* margin-left: 10px; */
 }
+
 .button-cancel {
     color: var(--rojo);
     background-color: white;
@@ -48,7 +49,6 @@ span {
 }
 
 table {
-
     align-items: center;
     align-content: center;
     width: 90%;
@@ -60,5 +60,9 @@ table {
 }
 
 th.mat-header-cell {
+    text-align: center !important;
+}
+
+td.mat-cell {
     text-align: center !important;
 }
