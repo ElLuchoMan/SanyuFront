@@ -9,6 +9,7 @@ import { Auth } from '../models/auth';
 import { Contratista } from '../models/contratista';
 import { Credenciales } from '../models/credenciales';
 import { Jornada } from '../models/jornada';
+import { Rol } from '../models/rol';
 import { Turno } from '../models/turno';
 
 @Injectable({
@@ -18,6 +19,11 @@ export class SanyuService {
   baseUrl = environment.urlSANYU; //Url de la API de SANYU
   documento: number; //Documento que se guarda tras buscar los turnos de un contratista, para poder enviarlo al crear un turno
   constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
+
+  //Método que permite crear un contratista
+  crearContratista(contratista: Contratista): Observable<Contratista> {
+    return this.httpClient.post<Contratista>(this.baseUrl + 'contratistas/nuevo', contratista);
+  }
   //Método que permite traer TODOS los turnos de un contratista mediantes su documento
   buscarTurnosContratista(documento: number): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/turno/${documento}`);
@@ -33,6 +39,10 @@ export class SanyuService {
   //Método que permite traer las jornadas desde la base de datos
   getJornada(): Observable<Jornada> {
     return this.httpClient.get<Jornada>(this.baseUrl + 'jornadas/');
+  }
+  //Método que permite traer los roles desde la base de datos
+  getRol(): Observable<Rol> {
+    return this.httpClient.get<Rol>(this.baseUrl + 'roles/');
   }
   //Método que permite traer un tunro desde ID
   getTurno(idTurno): Observable<Turno> {
