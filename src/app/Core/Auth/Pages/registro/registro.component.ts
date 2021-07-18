@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ValidatorService } from 'src/app/Shared/Services/validator.service';
 
 @Component({
@@ -10,21 +11,15 @@ import { ValidatorService } from 'src/app/Shared/Services/validator.service';
 })
 export class RegistroComponent implements OnInit {
   show: boolean;
-  icon : boolean;
-  constructor(private fb: FormBuilder, private router: Router, private validatorService: ValidatorService) { }
+  icon: boolean;
+  constructor(private fb: FormBuilder, private router: Router, private validatorService: ValidatorService, private toastr: ToastrService) { }
   registroForm: FormGroup = this.fb.group({
     documento: ['', Validators.required],
-    tipoDocumento: ['', Validators.required],
-    nombre1: ['', Validators.required],
-    nombre2: [''],
-    apellido1: ['', Validators.required],
-    apellido2: [''],
+    nombres: ['', Validators.required],
+    apellidos: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     password: ['', Validators.required],
-    celular: ['', Validators.required],
     telefono: ['', Validators.required],
-    // direccion: ['', Validators.required],
-    // ciudad: ['', Validators.required],
   })
   get emailErrorMsg(): string {
     const errors = this.registroForm.get('email')?.errors;
@@ -49,6 +44,8 @@ export class RegistroComponent implements OnInit {
     return this.registroForm.get(campo)?.invalid && this.registroForm.get(campo)?.touched;
   }
   guardarPersona() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/pages/users/admin']);
+    this.toastr.success('Usuario creado con éxito', '¡HECHO!');
+
   }
 }

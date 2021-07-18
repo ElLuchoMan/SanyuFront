@@ -1,6 +1,7 @@
 import { HttpRequest } from '@angular/common/http';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -16,7 +17,7 @@ import { Turno } from '../models/turno';
 export class SanyuService {
   baseUrl = environment.urlSANYU; //Url de la API de SANYU
   documento: number; //Documento que se guarda tras buscar los turnos de un contratista, para poder enviarlo al crear un turno
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private toastr: ToastrService) { }
   //Método que permite traer TODOS los turnos de un contratista mediantes su documento
   buscarTurnosContratista(documento: number): Observable<Turno> {
     return this.httpClient.get<Turno>(this.baseUrl + `turnos/turno/${documento}`);
@@ -78,5 +79,6 @@ export class SanyuService {
   //Método para cerrar sesión eliminando el local storage
   logout() {
     localStorage.clear();
+    this.toastr.success('Vuelva pronto', 'Sesión terminada');
   }
 }

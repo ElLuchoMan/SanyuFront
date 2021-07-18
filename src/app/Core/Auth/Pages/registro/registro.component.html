@@ -3,7 +3,7 @@
         <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title class="center">
-                    <h1 class="tittle">Regístrate</h1>
+                    <h1 class="tittle">Agregar Contratista</h1>
                     <hr>
                 </mat-card-title>
 
@@ -20,53 +20,6 @@
                             <mat-error>La identificación es obligatoria
                             </mat-error>
                         </mat-form-field>
-                        <mat-form-field appearance="outline" class="select-group example-middle-width">
-                            <mat-label>Tipo de documento</mat-label>
-                            <mat-select formControlName="tipoDocumento">
-                                <mat-option value="Cédula de Ciudadanía">Cédula de Ciudadanía</mat-option>
-                                <mat-option value="Tarjeta de Identidad">Tarjeta de Identidad</mat-option>
-                                <mat-option value="Cédula de Extranjería">Cédula de Extranjería</mat-option>
-                                <mat-option value="Pasaporte">Pasaporte</mat-option>
-                            </mat-select>
-                            <mat-hint>Seleccione el especialista</mat-hint>
-                            <mat-error>Campo obligatorio</mat-error>
-                        </mat-form-field>
-
-                    </div>
-
-                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Primer Nombre</mat-label>
-                            <input matInput formControlName="nombre1" />
-                            <mat-hint>Ingrese el primer nombre</mat-hint>
-                            <mat-error>El nombre es obligatorio</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Segundo Nombre</mat-label>
-                            <input matInput formControlName="nombre2" />
-                            <mat-hint>Ingrese el segundo nombre</mat-hint>
-                        </mat-form-field>
-                    </div>
-                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Primer Apellido</mat-label>
-                            <input matInput formControlName="apellido1" />
-                            <mat-hint>Ingrese el primer apellido</mat-hint>
-                            <mat-error>El apellido es obligatorio</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Segundo Apellido</mat-label>
-                            <input matInput formControlName="apellido2" />
-                            <mat-hint>Ingrese el segundo apellido</mat-hint>
-                        </mat-form-field>
-                    </div>
-                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
-                        <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Correo electónico</mat-label>
-                            <input matInput formControlName="email" />
-                            <mat-hint>Ingrese el email electrónico</mat-hint>
-                            <mat-error>El email es obligatorio</mat-error>
-                        </mat-form-field>
                         <mat-form-field appearance="outline" class="example-middle-width">
                             <mat-label>Password</mat-label>
                             <input matInput [type]="show ? 'text' : 'password'" formControlName="password" />
@@ -78,11 +31,24 @@
                     </div>
                     <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
                         <mat-form-field appearance="outline" class="example-middle-width">
-                            <mat-label>Número de celular</mat-label>
-                            <input matInput formControlName="celular" />
-                            <mat-hint>Ingrese su número de celular</mat-hint>
-                            <mat-error>El número de celular es obligatorio
-                            </mat-error>
+                            <mat-label>Nombres</mat-label>
+                            <input matInput formControlName="nombres" />
+                            <mat-hint>Ingrese los nombres</mat-hint>
+                            <mat-error>El nombre es obligatorio</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Apellidos</mat-label>
+                            <input matInput formControlName="apellidos" />
+                            <mat-hint>Ingrese los apellidos</mat-hint>
+                            <mat-error>El apellido es obligatorio</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group mt-1" fxLayoutAlign="space-between" fxLayout="row wrap">
+                        <mat-form-field appearance="outline" class="example-middle-width">
+                            <mat-label>Correo electónico</mat-label>
+                            <input matInput formControlName="email" />
+                            <mat-hint>Ingrese el email electrónico</mat-hint>
+                            <mat-error>El email es obligatorio</mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="example-middle-width">
                             <mat-label>Teléfono contacto</mat-label>
@@ -94,7 +60,7 @@
                         </mat-form-field>
                     </div>
                     <div fxLayout="column" fxLayoutAlign="center center">
-                        <mat-card-actions class="form-action mt-2" fxLayoutAlign="center" fxLayout.lt-sm="column">
+                        <mat-card-actions style="margin-top: 30px;" fxLayoutAlign="center" fxLayout.lt-sm="column">
                             <button class="card-button m-2" type="button" mat-raised-button
                                 routerLink="/pages/users/admin">
                                 <mat-icon>arrow_back</mat-icon>Regresar
@@ -103,7 +69,6 @@
                                 [disabled]="!registroForm.valid">
                                 <mat-icon>save</mat-icon> Guardar
                             </button>
-                            <!-- <mat-spinner *ngIf="registroForm.invalid"></mat-spinner> -->
                         </mat-card-actions>
                     </div>
                 </form>

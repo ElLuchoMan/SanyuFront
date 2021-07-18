@@ -1,19 +1,18 @@
 .login {
     background-size: cover;
-    position:absolute;
+    position: absolute;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     background-image: url('https://i.imgur.com/Fbq84jz.jpg');
-    /* opacity: 0.4; */
 }
 
 .example-card {
+    margin: 250px;
     max-width: 600px;
-    /* display: flex; */
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    min-height: 400px;
 }
 
 .center-content {
@@ -22,7 +21,7 @@
 }
 
 .example-form {
-    min-width: 150px;   
+    min-width: 150px;
     max-width: 500px;
     width: 100%;
 }
@@ -57,14 +56,17 @@ mat-card-header {
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
 .tittle {
     font-weight: bold;
     font-size: 2em;
-    font-family: 'Signika','Belgrano', serif;
+    font-family: 'Signika', 'Belgrano', serif;
 }
+
 .icon {
     color: var(--azul-claro);
 }
-.bar{
+
+.bar {
     color: var(--azul-claro);
 }
