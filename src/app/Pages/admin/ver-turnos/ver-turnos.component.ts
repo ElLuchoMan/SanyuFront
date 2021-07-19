@@ -22,6 +22,7 @@ export class VerTurnosComponent implements OnInit {
   documento: number;
   //Fecha del día
   Date = new Date();
+  inactivo: boolean = false;
   datasource: any;
   info: Auth;
   turnoEliminar: Turno | null;
@@ -35,8 +36,13 @@ export class VerTurnosComponent implements OnInit {
   //Método que permite traer la información del contratista si no es administrador
   mostrarContratista() {
     this.sanyuService.buscarContratista(this.buscarForm.value.documento).subscribe(data => {
-      if (data.rol.nombreRol != 'Administrador') {
+      if (data.rol.nombreRol != 'Administrador' && data.estadoContratista != 'Inactivo') {
         this.contratista = data;
+      } else {
+        if (data.estadoContratista == 'Inactivo') {
+          this.toastr.error('Contratista inactivo', '¡CUIDADO!');
+          this.inactivo = true;
+        }
       }
     })
   }

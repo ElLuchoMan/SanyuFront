@@ -23,10 +23,10 @@
             </button>
         </div>
     </div>
-    <div *ngIf="turnos.length>=1" fxLayoutAlign="center" style="margin-top: 40px;">
+    <div *ngIf="turnos.length>=1 && inactivo==false" fxLayoutAlign="center" style="margin-top: 40px;">
         <h1><strong>Turnos para:</strong> {{contratista?.nombre}}</h1>
     </div>
-    <div fxLayoutAlign="center" *ngIf="turnos.length>0">
+    <div fxLayoutAlign="center" *ngIf="turnos.length>0 && inactivo==false">
         <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
             <ng-container matColumnDef="fechaInicio">
                 <th scope="col" mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
