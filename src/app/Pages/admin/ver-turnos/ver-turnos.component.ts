@@ -40,7 +40,7 @@ export class VerTurnosComponent implements OnInit {
         this.contratista = data;
       } else {
         if (data.estadoContratista == 'Inactivo') {
-          this.toastr.error('Contratista inactivo', '¡CUIDADO!');
+          this.toastr.error('Contratista inactivo', '¡ERROR!');
           this.inactivo = true;
         }
       }

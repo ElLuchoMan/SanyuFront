@@ -33,16 +33,21 @@ export class LoginComponent implements OnInit {
     this.sanyuService.login(credenciales).subscribe(data => {
       localStorage.setItem('usuario', JSON.stringify(data));
       this.info = JSON.parse(localStorage.getItem('usuario'));
+      console.log();
       //Se valida la respuesta de la API, si es inválida, se muestra un mensaje
       if (data == null) {
         this.toastr.error('Verifique sus credenciales', '¡ERROR!');
+      } else {
+        if (data.estadoContratista == 'Inactivo') {
+          this.toastr.error('Su estado es inactivo', '¡ERROR!');
+        }
       }
       //Si la respuesta de la API es válida, se redirige a la página principal dependiendo su rol y se muestra un mensaje de bienvenida
-      if (this.info.rol.nombreRol == 'Administrador') {
+      if (this.info.rol.nombreRol == 'Administrador' && data.estadoContratista != 'Inactivo') {
         this.toastr.success(`Administrador: ${this.info.nombre}`, 'Hola');
         this.router.navigate(['/pages/users/admin']);
       } else {
-        if (this.info.rol.nombreRol == 'Campo') {
+        if (this.info.rol.nombreRol == 'Campo' && data.estadoContratista != 'Inactivo') {
           this.toastr.success(`Contratista: ${this.info.nombre}`, 'Hola');
           this.router.navigate(['/pages/users/contratista']);
         }
