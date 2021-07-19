@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
 import { Auth } from 'src/app/Shared/models/auth';
 import { Contratista } from 'src/app/Shared/models/contratista';
 import { Turno } from 'src/app/Shared/models/turno';
@@ -19,11 +20,12 @@ export class VerTurnosComponent implements OnInit {
   //Arreglo de turnos
   turnos: Turno[] = [];
   datasource: any = this.turnos;
+  sinTurno: boolean = false;
 
   // @ViewChild(MatSort, { static: false }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor(private sanyuService: SanyuService) { }
+  constructor(private sanyuService: SanyuService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     //Se asigna la información del local storage a una variable info
@@ -40,9 +42,14 @@ export class VerTurnosComponent implements OnInit {
   infoContratista() {
     this.sanyuService.buscarTurnosContratista(this.documento).subscribe((data) => {
       //Si existen los datos, se asignan a la variable turnos y al datasource
+      console.log(data);
       if (data != null) {
         this.turnos.push(data);
         this.datasource = data;
+      }
+      if (data[0] == null) {
+        this.toastr.error('No tienes turnos registrados', 'ERROR');
+        this.sinTurno = true;
       }
     })
   }

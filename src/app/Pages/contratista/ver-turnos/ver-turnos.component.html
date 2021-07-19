@@ -15,7 +15,7 @@
         </div>
     </div>
     <!-- Tabla -->
-    <div fxLayoutAlign="center" *ngIf="turnos.length>0">
+    <div fxLayoutAlign="center" *ngIf="turnos.length>0 && sinTurno==false">
         <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
             <ng-container matColumnDef="fechaInicio">
                 <th scope="col" mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
