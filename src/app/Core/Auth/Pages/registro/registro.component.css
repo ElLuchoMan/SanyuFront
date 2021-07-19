@@ -26,6 +26,11 @@
     width: 100%;
 }
 
+.completo {
+    width: 580px;
+    margin-left: 10px;
+}
+
 .example-full-width {
     margin-top: 10px;
     width: 100%;
