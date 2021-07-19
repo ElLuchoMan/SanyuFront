@@ -38,16 +38,16 @@ export class LoginComponent implements OnInit {
       if (data == null) {
         this.toastr.error('Verifique sus credenciales', '¡ERROR!');
       } else {
-        if (data.estadoContratista == 'Inactivo') {
+        if (data?.estadoContratista == 'Inactivo') {
           this.toastr.error('Su estado es inactivo', '¡ERROR!');
         }
       }
       //Si la respuesta de la API es válida, se redirige a la página principal dependiendo su rol y se muestra un mensaje de bienvenida
-      if (this.info.rol.nombreRol == 'Administrador' && data.estadoContratista != 'Inactivo') {
+      if (this.info.rol.nombreRol == 'Administrador' && data?.estadoContratista != 'Inactivo') {
         this.toastr.success(`Administrador: ${this.info.nombre}`, 'Hola');
         this.router.navigate(['/pages/users/admin']);
       } else {
-        if (this.info.rol.nombreRol == 'Campo' && data.estadoContratista != 'Inactivo') {
+        if (this.info.rol.nombreRol == 'Campo' && data?.estadoContratista != 'Inactivo') {
           this.toastr.success(`Contratista: ${this.info.nombre}`, 'Hola');
           this.router.navigate(['/pages/users/contratista']);
         }
